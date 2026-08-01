@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Cabinet (RFID/VLM) | HOFMANN INDUSTRIAL SOLUTION</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 500: '#2563EB', 700: '#1D4ED8' },
+                        industrial: { 50: '#F9FAFB', 800: '#1F2937', 900: '#111827' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-industrial-900 font-sans antialiased">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center px-1 py-1">
+                    <img src="assets/brand/HIS Name Logo.jpg" alt="HOFMANN INDUSTRIAL SOLUTION Logo" class="h-12 w-auto object-contain" />
+                </a>
+                <div class="flex items-center space-x-6">
+                    <a href="project.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Projects</a>
+                    <!-- 商業註解：將分散產品入口收斂到 Solutions 下拉，可降低主導航認知負擔並提升產品矩陣清晰度。 -->
+                    <div class="relative group">
+                        <button type="button" class="inline-flex items-center gap-1 text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">
+                            Solutions
+                            <svg class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="invisible absolute right-0 top-full z-50 mt-3 w-56 rounded-xl border border-gray-200 bg-white p-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                            <a href="product-workstation.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Workstation</a>
+                            <a href="product-smart-cabinet.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Smart Cabinet</a>
+                            <a href="product-agv.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">AGV</a>
+                            <a href="compliance-check.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">SDS Generator</a>
+                        </div>
+                    </div>
+                    <a href="company-profile.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Milestone</a>
+                    <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Insights</a>
+                    <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-500 hover:text-industrial-900 transition-colors">E-Shop</a>
+                    <a href="contact.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="bg-white">
+        <section class="py-16 sm:py-24 bg-gray-50 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-500 mb-3">Core Solution</p>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-industrial-900 mb-6">Smart Cabinet (RFID/VLM)</h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">Automated inventory management designed to eliminate human error, prevent critical stockouts, and secure high-value tooling.</p>
+                    <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-3 rounded-md bg-brand-500 text-white font-semibold hover:bg-brand-700 transition-colors shadow-sm">
+                        Consult for Your Layout ??
+                    </a>
+                </div>
+                <div data-aos="fade-left" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-center items-center h-96">
+                    <img src="Smart Cabinet (RFID VLM).png" alt="Smart Cabinet System" class="max-h-full w-auto object-contain" />
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-16">Key Capabilities</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-brand-500 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
+                        </div>
+                        <!-- 商業註解：先強調可追溯與防損能力，直接回應管理層對資產流失與責任歸屬的核心痛點。 -->
+                        <h3 class="text-xl font-bold mb-3">Absolute Accountability</h3>
+                        <p class="text-gray-600 leading-relaxed">Secure instant access via Face ID or mobile app. Achieve 100% user tracking to know exactly who took what and when, eliminating untracked losses and shrinkage.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-brand-500 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <!-- 商業註解：用「可擴展生態」表達同平台多設備能力，提升客戶對未來擴充與投資回報的信心。 -->
+                        <h3 class="text-xl font-bold mb-3">Versatile Smart Ecosystem</h3>
+                        <p class="text-gray-600 leading-relaxed">Deploy space-saving Vertical Lift Modules (VLM) for high-value tooling, or rugged WY-RJ003 vending machines for daily PPE. Customizable slots maximize your floor efficiency.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-brand-500 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                        </div>
+                        <!-- 商業註解：強化「自動補貨閉環」敘事，讓客戶直觀理解系統可同時降人力成本並避免停線風險。 -->
+                        <h3 class="text-xl font-bold mb-3">Automated Replenishment Loop</h3>
+                        <p class="text-gray-600 leading-relaxed">The Intelligent OS provides real-time multi-angle analytics and automatically generates purchase orders when stock drops below custom thresholds. Zero downtime, zero admin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 商業註解：以三階段閉環流程呈現「從混亂到可控」的價值遞進，將技術特性轉為管理層可理解的經營成果。 -->
+        <section class="pb-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-center text-2xl sm:text-3xl font-bold text-industrial-900">The HIS Value Loop: From Chaos to Control</h3>
+                <div class="relative mt-10">
+                    <div class="hidden md:block absolute left-[16%] right-[16%] top-9 h-px bg-gray-200"></div>
+                    <div class="grid gap-5 md:grid-cols-3">
+                        <article class="relative rounded-xl border border-gray-100 bg-slate-50/70 p-6 text-center transition-shadow hover:shadow-md">
+                            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-brand-500">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.567 3-3.5S13.657 4 12 4 9 5.567 9 7.5 10.343 11 12 11zm0 0c-3.314 0-6 2.239-6 5v1h12v-1c0-2.761-2.686-5-6-5zm8 0v6m3-3h-6"></path></svg>
+                            </div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Phase 1</p>
+                            <h4 class="mt-2 text-lg font-bold text-industrial-900">Zero-Friction Access &amp; Traceability</h4>
+                            <p class="mt-2 text-sm leading-6 text-gray-600">Authenticate via Face ID or RFID. Every transaction is permanently logged to prevent abuse and ensure total accountability.</p>
+                        </article>
+                        <article class="relative rounded-xl border border-gray-100 bg-slate-50/70 p-6 text-center transition-shadow hover:shadow-md">
+                            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-brand-500">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v6h6M20 20v-6h-6M5.64 18.36A9 9 0 0019 12a9 9 0 00-15-6.36M18.36 5.64A9 9 0 015 12a9 9 0 0015 6.36"></path></svg>
+                            </div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Phase 2</p>
+                            <h4 class="mt-2 text-lg font-bold text-industrial-900">Predictive Inventory Forecasting</h4>
+                            <p class="mt-2 text-sm leading-6 text-gray-600">Leverage consumption data to accurately forecast future needs, enabling leaner, smarter, and forward-looking stock planning.</p>
+                        </article>
+                        <article class="relative rounded-xl border border-gray-100 bg-slate-50/70 p-6 text-center transition-shadow hover:shadow-md">
+                            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-brand-500">
+                                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l4-4 4 4 8-8M14 9h5v5"></path></svg>
+                            </div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Phase 3</p>
+                            <h4 class="mt-2 text-lg font-bold text-industrial-900">Uninterruptible Supply</h4>
+                            <p class="mt-2 text-sm leading-6 text-gray-600">The ecosystem monitors live stock levels and automatically triggers reorders, ensuring your production line never stops.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 商業註解：此實證引導區塊用於把產品功能訴求轉化為案例信任，作為成交CTA前的關鍵心理過渡。 -->
+        <section class="pb-6">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="rounded-2xl bg-slate-50 border border-gray-100 py-12 px-6 text-center">
+                    <h3 class="text-3xl font-bold text-industrial-900">See Our Smart Storage in Action</h3>
+                    <p class="mt-4 text-gray-600">Discover how our RFID and VLM ecosystems eliminate inventory chaos and deliver 100% accountability in real-world industrial environments.</p>
+                    <a href="project.html" class="mt-8 inline-flex items-center justify-center px-7 py-3 rounded-md border border-brand-500 text-brand-500 font-semibold bg-transparent hover:bg-brand-500 hover:text-white transition-colors">
+                        View Project Gallery ->
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50 border-t border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-6">Ready to secure your inventory?</h2>
+                <p class="text-gray-600 mb-10">Contact our engineering team to draft a custom layout for your facility.</p>
+                <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-industrial-900 text-white font-semibold rounded-md hover:bg-industrial-800 transition-colors shadow-lg">
+                    Chat with our experts
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-industrial-900 py-16 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="mb-10 text-sm text-gray-300">
+                <a href="product-workstation.html" class="hover:text-white transition-colors">Solution</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="project.html" class="hover:text-white transition-colors">Project</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="company-profile.html" class="hover:text-white transition-colors">Milestone</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Insights</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">E-Shop</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="compliance-check.html" class="hover:text-white transition-colors">SDS Generator</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <div class="border-t border-industrial-800 pt-8 text-sm text-gray-400">
+                <p>&copy; 2026 HOFMANN INDUSTRIAL SOLUTION SDN. BHD. All rights reserved.</p>
+                <p class="mt-2">Reg. No: 202501035528 (1636938-V)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 750, easing: 'ease-out', once: true });
+    </script>
+</body>
+</html>
+

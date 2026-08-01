@@ -1,0 +1,100 @@
+{
+  "phases": [
+    {
+      "id": "foundation",
+      "period": "2016 - 2018",
+      "title": "Foundation & Market Entry",
+      "summary": "Started with precision tooling supply and built trust through fast-response industrial support.",
+      "milestones": [
+        {
+          "year": "2016",
+          "title": "Company Formation & First Industrial Accounts",
+          "description": "Established operation base and secured the first batch of factory clients in Malaysia.",
+          "highlight": "首年拿下關鍵工業客戶，建立可複製的服務交付流程。",
+          "image": "Tooling1.png",
+          "align": "left"
+        },
+        {
+          "year": "2018",
+          "title": "Service Standardization",
+          "description": "Introduced standardized quoting, delivery, and follow-up routines across tooling categories.",
+          "highlight": "交期與交付品質穩定化，客戶復購率顯著提升。",
+          "image": "AGV Solutions.png",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "id": "expansion",
+      "period": "2019 - 2021",
+      "title": "Workstation & Storage Expansion",
+      "summary": "Expanded from product distribution into structured workstation and storage deployment projects.",
+      "milestones": [
+        {
+          "year": "2019",
+          "title": "Modular Workstation Projects",
+          "description": "Delivered modular workstation systems for training centers and technical workshops.",
+          "highlight": "從單品供應升級為整體工位方案，單案價值明顯放大。",
+          "image": "assets/projects/Modular Workstation Cluster for Technical Training Center.avif",
+          "align": "right"
+        },
+        {
+          "year": "2021",
+          "title": "Factory Layout-Oriented Delivery",
+          "description": "Integrated storage cabinets, perforated panels, and utilities into workflow-driven layouts.",
+          "highlight": "形成「工位 + 收納 + 動線」一體化交付能力。",
+          "image": "assets/projects/CNC Workshop Integration｜Workbench with Perforated Panel for Tool Accessibility.avif",
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "transformation",
+      "period": "2022 - 2024",
+      "title": "Smart Workflow Transformation",
+      "summary": "Shifted toward smart cabinet logic, AGV-compatible material flow, and traceable operations.",
+      "milestones": [
+        {
+          "year": "2022",
+          "title": "Smart Storage Direction",
+          "description": "Brought RFID/VLM-oriented concepts into inventory control and issue management workflows.",
+          "highlight": "啟動智慧倉儲與可追溯管理能力，支持精益化運營。",
+          "image": "Smart Cabinet (RFID VLM).png",
+          "align": "left"
+        },
+        {
+          "year": "2024",
+          "title": "Automation-Ready Project Delivery",
+          "description": "Aligned workstation and logistics planning with AGV movement and safety compliance.",
+          "highlight": "方案可直接銜接自動化升級路徑，降低後續改造成本。",
+          "image": "AGV Solutions.png",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "id": "scale",
+      "period": "2025 - Present",
+      "title": "Scaled End-to-End Industrial Partner",
+      "summary": "Now delivering complete productivity systems from consulting and deployment to optimization cycles.",
+      "milestones": [
+        {
+          "year": "2025",
+          "title": "Multi-Site Rollout Capability",
+          "description": "Executed coordinated deployment across multiple manufacturing sites with consistent standards.",
+          "highlight": "建立跨廠區複製能力，交付效率與一致性同步提升。",
+          "image": "assets/projects/Staging & Pre-Deployment｜Full Workstation System for Industrial Rollout.avif",
+          "align": "right"
+        },
+        {
+          "year": "2026",
+          "title": "Performance-Driven Solution Framework",
+          "description": "Combined tooling, workstation, storage, and automation into one measurable performance framework.",
+          "highlight": "以生產力結果為導向，形成可量化的長期合作模型。",
+          "image": "assets/projects/Lean Assembly Line Setup｜Perforated Panel Workstations with Component Bin Systems.webp",
+          "align": "left"
+        }
+      ]
+    }
+  ]
+}

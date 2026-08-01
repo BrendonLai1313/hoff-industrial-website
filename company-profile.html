@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Profile | HOFMANN INDUSTRIAL SOLUTION</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 500: '#2563EB', 700: '#1D4ED8' },
+                        industrial: { 50: '#F9FAFB', 800: '#1F2937', 900: '#111827' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-industrial-900 font-sans antialiased">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center px-1 py-1">
+                    <img src="assets/brand/HIS Name Logo.jpg" alt="HOFMANN INDUSTRIAL SOLUTION Logo" class="h-12 w-auto object-contain" />
+                </a>
+                <div class="flex items-center space-x-6">
+                    <a href="project.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Projects</a>
+                    <!-- 商業註解：將分散產品入口收斂到 Solutions 下拉，可降低主導航認知負擔並提升產品矩陣清晰度。 -->
+                    <div class="relative group">
+                        <button type="button" class="inline-flex items-center gap-1 text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">
+                            Solutions
+                            <svg class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="invisible absolute right-0 top-full z-50 mt-3 w-56 rounded-xl border border-gray-200 bg-white p-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                            <a href="product-workstation.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Workstation</a>
+                            <a href="product-smart-cabinet.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Smart Cabinet</a>
+                            <a href="product-agv.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">AGV</a>
+                            <a href="compliance-check.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">SDS Generator</a>
+                        </div>
+                    </div>
+                    <a href="company-profile.html" class="text-sm font-semibold text-brand-500">Milestone</a>
+                    <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Insights</a>
+                    <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-500 hover:text-industrial-900 transition-colors">E-Shop</a>
+                    <a href="contact.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="bg-white">
+        <section class="relative py-16 sm:py-24 bg-industrial-50 border-b border-gray-100">
+            <div class="absolute inset-0">
+                <img src="assets/docs/Comment_Bg.JPG" alt="Company Background" class="w-full h-full object-cover opacity-10" />
+            </div>
+            <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+                <p class="text-sm font-semibold uppercase tracking-[0.18em] text-brand-500">Milestone</p>
+                <h1 class="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">Built Through Real Projects, Evolved by Industrial Needs</h1>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">Explore our development journey by timeline and open each stage to view core milestones, capabilities, and delivery focus.</p>
+                <div class="mt-8">
+                    <a href="assets/docs/HIS%20Company%20Profile.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-3 rounded-md border border-industrial-900 text-industrial-900 font-semibold hover:bg-industrial-900 hover:text-white transition-colors">
+                        Company Profile PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-14 pb-56 sm:pt-20 sm:pb-80 bg-stone-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-3xl text-center mb-10" data-aos="fade-up">
+                    <p class="font-mono text-xs tracking-[0.28em] text-amber-600">GROWTH TRAJECTORY</p>
+                    <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-stone-900">How HIS Evolved Into a Stronger Industrial Partner</h2>
+                    <p class="mt-4 text-stone-600">This timeline reflects our progression from trusted tooling supply into a broader industrial platform, shaped by exclusive brand alliances, enterprise-level trust, smarter inventory systems, safety compliance capabilities, and stronger regional collaboration.</p>
+                </div>
+                <div id="companyTimeline" class="space-y-4"></div>
+            </div>
+        </section>
+
+        <footer class="bg-industrial-900 py-16 text-white text-center">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8">Plan your next industrial upgrade with us</h2>
+                <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-white text-industrial-900 font-semibold rounded-md hover:bg-gray-100 transition-colors mb-12 shadow-lg">
+                    Chat with our experts
+                </a>
+                <div class="mb-10 text-sm text-gray-300">
+                    <a href="company-profile.html" class="hover:text-white transition-colors">Milestone</a>
+                    <span class="mx-2 text-gray-500">|</span>
+                    <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Insights</a>
+                    <span class="mx-2 text-gray-500">|</span>
+                    <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">E-Shop</a>
+                    <span class="mx-2 text-gray-500">|</span>
+                    <a href="compliance-check.html" class="hover:text-white transition-colors">SDS Generator</a>
+                    <span class="mx-2 text-gray-500">|</span>
+                    <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+                </div>
+                <div class="border-t border-industrial-800 pt-8 text-sm text-gray-400">
+                    <p>&copy; 2026 HOFMANN INDUSTRIAL SOLUTION SDN. BHD. All rights reserved.</p>
+                    <p class="mt-2">Reg. No: 202501035528 (1636938-V)</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="assets/data/company-timeline.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 700, easing: 'ease-out', once: true });
+        const COPY_LIMIT = {
+            milestoneTitle: 62
+        };
+
+        function clampText(value, max) {
+            const text = value ? String(value).trim() : '';
+            if (!text) return '';
+            const chars = Array.from(text);
+            if (chars.length <= max) return text;
+            return chars.slice(0, max).join('') + '...';
+        }
+
+        function renderMilestoneIcon() {
+            return `
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="h-5 w-5">
+                    <path d="M12 3l1.8 4.7L18.5 9l-3.7 3 1.2 4.8L12 14.3 8 16.8 9.2 12 5.5 9l4.7-1.3L12 3z" fill="currentColor"></path>
+                </svg>
+            `;
+        }
+
+        function renderMilestoneCard(milestone) {
+            const safeAlign = milestone && milestone.align === 'right' ? 'right' : 'left';
+            const safeYear = milestone && milestone.year ? String(milestone.year) : 'N/A';
+            const safeTitle = clampText(milestone && milestone.title ? milestone.title : 'Untitled Milestone', COPY_LIMIT.milestoneTitle);
+            const fullDescription = milestone && milestone.description ? String(milestone.description).trim() : '';
+            const fullHighlight = milestone && milestone.highlight ? String(milestone.highlight).trim() : '';
+            const safeImage = milestone && milestone.image ? milestone.image : 'assets/docs/Comment_Bg.JPG';
+            const isLeft = safeAlign === 'left';
+            const textColumn = isLeft ? 'md:col-span-5 md:col-start-1' : 'md:col-span-5 md:col-start-8';
+            const tooltipSide = isLeft ? 'md:left-full md:ml-4' : 'md:right-full md:mr-4';
+                        return `
+                <div class="grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-8">
+                    <div class="${textColumn}">
+                        <!-- 里程碑卡片：常态只保留年份、图标、标题与 Highlighted Achievement，视觉更干净。 -->
+                        <article class="group relative rounded-2xl border border-stone-200 bg-white px-7 py-7 shadow-sm transition-all duration-300 hover:border-brand-500 hover:shadow-lg">
+                            <div class="flex items-start gap-5">
+                                <div class="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full border border-brand-100 bg-blue-50 text-brand-500 shadow-sm">
+                                    ${renderMilestoneIcon()}
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="font-mono text-[13px] tracking-[0.22em] text-amber-600">${safeYear}</p>
+                                    <h4 class="mt-3 text-[1.55rem] font-bold leading-9 text-stone-900">${safeTitle}</h4>
+                                </div>
+                            </div>
+                            <div class="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4">
+                                <p class="font-mono text-[13px] tracking-[0.2em] text-amber-700">Highlighted Achievement</p>
+                                <p class="mt-2 text-[1rem] font-medium leading-7 text-amber-900">${fullHighlight}</p>
+                            </div>
+                            <!-- Hover 浮层：桌机时负责承载图片与完整说明，取代旧的常驻占位图。 -->
+                            <div class="pointer-events-none absolute ${tooltipSide} top-0 z-50 hidden w-[432px] translate-y-2 flex-col gap-4 rounded-2xl border border-brand-500 bg-white p-5 opacity-0 shadow-2xl transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 md:flex">
+                                <div class="flex min-h-[240px] max-h-[420px] items-center justify-center overflow-hidden rounded-xl bg-stone-50 p-3">
+                                    <img src="${safeImage}" alt="${safeTitle}" class="block max-h-[396px] max-w-full rounded-lg object-contain" loading="lazy" />
+                                </div>
+                                <div>
+                                    <p class="font-mono text-[13px] tracking-[0.2em] text-amber-600">${safeYear}</p>
+                                    <h5 class="mt-3 text-[1.6rem] font-bold leading-9 text-stone-900">${safeTitle}</h5>
+                                </div>
+                                <p class="text-[1.05rem] leading-8 text-stone-700">${fullDescription}</p>
+                            </div>
+                        </article>
+                        <!-- 手机端没有 hover，因此直接在卡片下方展开完整图文，避免信息丢失。 -->
+                        <div class="mt-4 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm md:hidden">
+                            <div class="flex min-h-[220px] max-h-[420px] items-center justify-center overflow-hidden rounded-xl bg-stone-50 p-3">
+                                <img src="${safeImage}" alt="${safeTitle}" class="block max-h-[396px] max-w-full rounded-lg object-contain" loading="lazy" />
+                            </div>
+                            <p class="mt-5 text-[1.05rem] leading-8 text-stone-700">${fullDescription}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderPhase(phase) {
+            const safePeriod = phase && phase.period ? String(phase.period) : '';
+            const safeId = phase && phase.id ? String(phase.id) : safePeriod;
+            const milestones = Array.isArray(phase && phase.milestones) ? phase.milestones.map(renderMilestoneCard).join('') : '';
+            return `
+                <section class="timeline-phase relative" data-phase-id="${safeId}">
+                    <div class="relative z-10 flex justify-center">
+                        <div class="flex flex-col items-center">
+                            <!-- 中线圆点：作为年份切换按钮，展开时实心，收起时空心。 -->
+                            <button
+                                type="button"
+                                class="phase-node flex h-14 w-14 items-center justify-center rounded-full border-2 border-brand-500 bg-white shadow-md transition-all duration-300 hover:scale-105"
+                                data-phase-id="${safeId}"
+                                aria-expanded="false"
+                                aria-label="Toggle ${safePeriod}"
+                            >
+                                <span class="phase-node-core h-5 w-5 rounded-full border border-brand-500 bg-white transition-all duration-300"></span>
+                            </button>
+                            <span class="mt-3 inline-flex rounded-full border border-brand-100 bg-white px-3 py-1 font-mono text-[11px] tracking-[0.18em] text-brand-500 shadow-sm">${safePeriod}</span>
+                        </div>
+                    </div>
+                    <div class="phase-panel hidden pt-8">
+                        <div class="space-y-6 md:space-y-8">${milestones}</div>
+                    </div>
+                </section>
+            `;
+        }
+
+        function renderTimeline(phases) {
+            return `
+                <div class="relative mx-auto max-w-6xl">
+                    <!-- 单一时间线：整条蓝色中线贯穿四个年份节点。 -->
+                    <div class="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-brand-500/25 md:block"></div>
+                    <div class="space-y-12 md:space-y-16">
+                        ${phases.map(renderPhase).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function bindTimeline(root) {
+            const items = Array.from(root.querySelectorAll('.timeline-phase'));
+            if (!items.length) return;
+
+            const closeItem = (item) => {
+                const button = item.querySelector('.phase-node');
+                const core = item.querySelector('.phase-node-core');
+                const panel = item.querySelector('.phase-panel');
+                button.setAttribute('aria-expanded', 'false');
+                panel.classList.add('hidden');
+                button.classList.remove('bg-blue-50', 'shadow-lg');
+                core.classList.remove('bg-brand-500', 'scale-110');
+                core.classList.add('bg-white');
+            };
+
+            const openItem = (item) => {
+                const button = item.querySelector('.phase-node');
+                const core = item.querySelector('.phase-node-core');
+                const panel = item.querySelector('.phase-panel');
+                button.setAttribute('aria-expanded', 'true');
+                panel.classList.remove('hidden');
+                button.classList.add('bg-blue-50', 'shadow-lg');
+                core.classList.remove('bg-white');
+                core.classList.add('bg-brand-500', 'scale-110');
+            };
+
+            items.forEach((item) => {
+                const button = item.querySelector('.phase-node');
+                closeItem(item);
+                button.addEventListener('click', () => {
+                    const expanded = button.getAttribute('aria-expanded') === 'true';
+                    items.forEach(closeItem);
+                    if (!expanded) openItem(item);
+                });
+            });
+
+            openItem(items[0]);
+        }
+
+        async function loadPhases() {
+            if (window.COMPANY_TIMELINE_DATA && Array.isArray(window.COMPANY_TIMELINE_DATA.phases)) {
+                return window.COMPANY_TIMELINE_DATA.phases;
+            }
+            const response = await fetch('assets/data/company-timeline.json', { cache: 'no-store' });
+            const payload = await response.json();
+            return Array.isArray(payload.phases) ? payload.phases : [];
+        }
+
+        async function initTimeline() {
+            const container = document.getElementById('companyTimeline');
+            if (!container) return;
+            try {
+                const phases = await loadPhases();
+                container.innerHTML = renderTimeline(phases);
+                bindTimeline(container);
+            } catch (error) {
+                container.innerHTML = '<div class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">Timeline data failed to load. Please check assets/data/company-timeline.json.</div>';
+            }
+        }
+
+        initTimeline();
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGV Solutions | HOFMANN INDUSTRIAL SOLUTION</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 500: '#2563EB', 700: '#1D4ED8' },
+                        industrial: { 50: '#F9FAFB', 800: '#1F2937', 900: '#111827' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-industrial-900 font-sans antialiased">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center px-1 py-1">
+                    <img src="assets/brand/HIS Name Logo.jpg" alt="HOFMANN INDUSTRIAL SOLUTION Logo" class="h-12 w-auto object-contain" />
+                </a>
+                <div class="flex items-center space-x-6">
+                    <a href="project.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Projects</a>
+                    <!-- 商業註解：將分散產品入口收斂到 Solutions 下拉，可降低主導航認知負擔並提升產品矩陣清晰度。 -->
+                    <div class="relative group">
+                        <button type="button" class="inline-flex items-center gap-1 text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">
+                            Solutions
+                            <svg class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="invisible absolute right-0 top-full z-50 mt-3 w-56 rounded-xl border border-gray-200 bg-white p-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                            <a href="product-workstation.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Workstation</a>
+                            <a href="product-smart-cabinet.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Smart Cabinet</a>
+                            <a href="product-agv.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">AGV</a>
+                            <a href="compliance-check.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">SDS Generator</a>
+                        </div>
+                    </div>
+                    <a href="company-profile.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Milestone</a>
+                    <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Insights</a>
+                    <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-500 hover:text-industrial-900 transition-colors">E-Shop</a>
+                    <a href="contact.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="bg-white">
+        <section class="py-16 sm:py-24 bg-gray-50 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-brand-500 mb-3">Core Solution</p>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-industrial-900 mb-6">AGV Solutions</h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">Intelligent autonomous movement to streamline factory material flow, reduce manual handling, and keep production synchronized from station to station.</p>
+                    <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-3 rounded-md bg-brand-500 text-white font-semibold hover:bg-brand-700 transition-colors shadow-sm">
+                        Consult for Your Layout ??
+                    </a>
+                </div>
+                <div data-aos="fade-left" class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex justify-center items-center h-96">
+                    <img src="AGV Solutions.png" alt="AGV Solutions System" class="max-h-full w-auto object-contain" />
+                </div>
+            </div>
+        </section>
+
+        <!-- 商業註解：在能力描述前先放權威背書，可快速建立「大廠已驗證」的信任捷徑，降低陌生品牌阻力。 -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="rounded-2xl border border-gray-100 bg-slate-50 px-6 py-8 text-center">
+                    <p class="text-base sm:text-lg font-medium text-industrial-900">Powered by technology trusted by global manufacturing giants: Toyota, Foxconn, Volkswagen, and CATL.</p>
+                    <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div class="rounded-lg border border-gray-200 bg-white py-3 text-xs font-semibold tracking-[0.12em] text-gray-400">LOGO SLOT 1</div>
+                        <div class="rounded-lg border border-gray-200 bg-white py-3 text-xs font-semibold tracking-[0.12em] text-gray-400">LOGO SLOT 2</div>
+                        <div class="rounded-lg border border-gray-200 bg-white py-3 text-xs font-semibold tracking-[0.12em] text-gray-400">LOGO SLOT 3</div>
+                        <div class="rounded-lg border border-gray-200 bg-white py-3 text-xs font-semibold tracking-[0.12em] text-gray-400">LOGO SLOT 4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-16">Key Capabilities</h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-brand-500 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V7.618a1 1 0 01.553-.894L9 4m0 16l6-3m-6 3V4m6 13l5.447-2.724A1 1 0 0021 13.382V4.618a1 1 0 00-.553-.894L15 1m0 16V1m0 0L9 4"></path></svg>
+                        </div>
+                        <!-- 商業註解：先凸顯動線優化價值，直接對應工廠「搬運低效」與「跨區等待」痛點。 -->
+                        <h3 class="text-xl font-bold mb-3">Ultimate Precision (&plusmn;10mm)</h3>
+                        <p class="text-gray-600 leading-relaxed">Compatible with Magnetic, Laser, SLAM, and QR code navigation. Delivers &plusmn;10mm movement and 5mm docking accuracy for flawless material handoffs.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-brand-500 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-11 9h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v11a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <!-- 商業註解：強調與排程系統整合，提升客戶對「可控交付節拍」與跨班次穩定性的信心。 -->
+                        <h3 class="text-xl font-bold mb-3">Heavy-Duty Scalability</h3>
+                        <p class="text-gray-600 leading-relaxed">From ultra-thin latent lifters (up to 3500kg) to high-reach smart forklifts operating at 9.5m. We cover every weight class.</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 mx-auto bg-blue-50 text-brand-500 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 21a9 9 0 100-18 9 9 0 000 18z"></path></svg>
+                        </div>
+                        <!-- 商業註解：把安全與追溯並列，讓管理層同時看見風險下降與流程透明化的雙重收益。 -->
+                        <h3 class="text-xl font-bold mb-3">360&deg; Zero-Accident Safety</h3>
+                        <p class="text-gray-600 leading-relaxed">Built-in 360&deg; protection with slow-down, emergency braking, and voice prompts. Ensuring absolute safety for your human workforce.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 商業註解：先展示可落地的核心車型組合，可讓客戶快速對應場景並形成「可採購清單」心智。 -->
+        <section class="pb-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-center text-2xl sm:text-3xl font-bold text-industrial-900">The Core Fleet</h3>
+                <div class="mt-10 grid gap-5 md:grid-cols-3">
+                    <article class="rounded-xl border border-gray-100 bg-slate-50/70 p-6 text-center transition-shadow hover:shadow-md">
+                        <h4 class="text-xl font-bold text-industrial-900">Latent Towing</h4>
+                        <p class="mt-2 text-sm text-gray-500">(For End-to-End Cart Transfer)</p>
+                    </article>
+                    <article class="rounded-xl border border-gray-100 bg-slate-50/70 p-6 text-center transition-shadow hover:shadow-md">
+                        <h4 class="text-xl font-bold text-industrial-900">Latent Lifting</h4>
+                        <p class="mt-2 text-sm text-gray-500">(For Dynamic Rack &amp; Pallet Moving)</p>
+                    </article>
+                    <article class="rounded-xl border border-gray-100 bg-slate-50/70 p-6 text-center transition-shadow hover:shadow-md">
+                        <h4 class="text-xl font-bold text-industrial-900">Smart Forklift</h4>
+                        <p class="mt-2 text-sm text-gray-500">(For High-Stacking &amp; Large Volumes)</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 商業註解：以流程化表達展示 AGV 導入是可分階段落地的，降低客戶對改造風險與導入門檻的心理阻力。 -->
+        <section class="pb-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-center text-2xl sm:text-3xl font-bold text-industrial-900">AGV Deployment in 4 Practical Steps</h3>
+                <div class="relative mt-10">
+                    <div class="hidden md:block absolute left-[12%] right-[12%] top-8 h-px bg-gray-200"></div>
+                    <div class="grid gap-5 md:grid-cols-4">
+                        <article class="relative rounded-xl border border-gray-100 bg-white p-5 text-center">
+                            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Step 1</p>
+                            <h4 class="mt-2 text-lg font-bold text-industrial-900">Map Workflow</h4>
+                            <p class="mt-2 text-sm leading-6 text-gray-600">Capture pick-up points, drop-off zones, and cycle targets.</p>
+                        </article>
+                        <article class="relative rounded-xl border border-gray-100 bg-white p-5 text-center">
+                            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Step 2</p>
+                            <h4 class="mt-2 text-lg font-bold text-industrial-900">Simulate Traffic</h4>
+                            <p class="mt-2 text-sm leading-6 text-gray-600">Validate route logic and station timing before go-live.</p>
+                        </article>
+                        <article class="relative rounded-xl border border-gray-100 bg-white p-5 text-center">
+                            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Step 3</p>
+                            <h4 class="mt-2 text-lg font-bold text-industrial-900">Pilot &amp; Tune</h4>
+                            <p class="mt-2 text-sm leading-6 text-gray-600">Run controlled trials and optimize dispatch rules on-site.</p>
+                        </article>
+                        <article class="relative rounded-xl border border-gray-100 bg-white p-5 text-center">
+                            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-500">Step 4</p>
+                            <h4 class="mt-2 text-lg font-bold text-industrial-900">Scale Plant-Wide</h4>
+                            <p class="mt-2 text-sm leading-6 text-gray-600">Replicate validated routes across shifts, lines, and areas.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 商業註解：在能力敘事後導向案例牆，讓訪客從「理解功能」過渡到「看到交付證據」，提升商務信任。 -->
+        <section class="pb-6">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="rounded-2xl bg-slate-50 border border-gray-100 py-12 px-6 text-center">
+                    <h3 class="text-3xl font-bold text-industrial-900">See AGV Projects in Action</h3>
+                    <p class="mt-4 text-gray-600">Discover how autonomous routing and synchronized dispatch improve real-world throughput, safety, and delivery consistency.</p>
+                    <a href="project.html" class="mt-8 inline-flex items-center justify-center px-7 py-3 rounded-md border border-brand-500 text-brand-500 font-semibold bg-transparent hover:bg-brand-500 hover:text-white transition-colors">
+                        View Project Gallery ->
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50 border-t border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-6">Ready to automate your factory flow?</h2>
+                <p class="text-gray-600 mb-10">Contact our team to evaluate your route design, capacity target, and deployment plan.</p>
+                <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-industrial-900 text-white font-semibold rounded-md hover:bg-industrial-800 transition-colors shadow-lg">
+                    Chat with our experts
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-industrial-900 py-16 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="mb-10 text-sm text-gray-300">
+                <a href="product-workstation.html" class="hover:text-white transition-colors">Solution</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="project.html" class="hover:text-white transition-colors">Project</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="company-profile.html" class="hover:text-white transition-colors">Milestone</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Insights</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">E-Shop</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="compliance-check.html" class="hover:text-white transition-colors">SDS Generator</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <div class="border-t border-industrial-800 pt-8 text-sm text-gray-400">
+                <p>&copy; 2026 HOFMANN INDUSTRIAL SOLUTION SDN. BHD. All rights reserved.</p>
+                <p class="mt-2">Reg. No: 202501035528 (1636938-V)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 750, easing: 'ease-out', once: true });
+    </script>
+</body>
+</html>

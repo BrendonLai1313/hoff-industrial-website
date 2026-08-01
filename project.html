@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | HOFMANN INDUSTRIAL SOLUTION</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 500: '#1B4D6B', 700: '#153c54' },
+                        industrial: { 50: '#f8f9fa', 800: '#495057', 900: '#212529' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        [data-aos].aos-init:not(.aos-animate) {
+            transform: translate3d(0, 18px, 0) !important;
+        }
+        [data-aos].aos-animate {
+            transform: translate3d(0, 0, 0) !important;
+        }
+    </style>
+</head>
+<body class="bg-white text-industrial-900 font-sans antialiased">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center px-1 py-1">
+                    <img src="assets/brand/HIS Name Logo.jpg" alt="HOFMANN INDUSTRIAL SOLUTION Logo" class="h-12 w-auto object-contain" />
+                </a>
+                <div class="flex items-center space-x-6">
+                    <a href="project.html" class="text-sm font-semibold text-brand-500">Projects</a>
+                    <!-- 商業註解：將分散產品入口收斂到 Solutions 下拉，可降低主導航認知負擔並提升產品矩陣清晰度。 -->
+                    <div class="relative group">
+                        <button type="button" class="inline-flex items-center gap-1 text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">
+                            Solutions
+                            <svg class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div class="invisible absolute right-0 top-full z-50 mt-3 w-56 rounded-xl border border-gray-200 bg-white p-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                            <a href="product-workstation.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Workstation</a>
+                            <a href="product-smart-cabinet.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Smart Cabinet</a>
+                            <a href="product-agv.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">AGV</a>
+                            <a href="compliance-check.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">SDS Generator</a>
+                        </div>
+                    </div>
+                    <a href="company-profile.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Milestone</a>
+                    <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Insights</a>
+                    <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-500 hover:text-industrial-900 transition-colors">E-Shop</a>
+                    <a href="contact.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="bg-white">
+        <section class="py-14 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-center text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight" data-aos="slide-up">Real Factories, Real Results</h1>
+                <!-- 商業註解：先用弱分類篩選建立「可找性」，同時保留 All 視圖維持案例體量與品牌完整感。 -->
+                <div class="mt-8 flex flex-wrap justify-center gap-2 opacity-85" id="projectFilterBar" data-aos="slide-up">
+                    <button class="project-filter-btn px-3 py-1.5 rounded-full border border-slate-200 bg-slate-50/80 text-slate-500 text-xs font-medium" data-filter="all">All</button>
+                    <button class="project-filter-btn px-3 py-1.5 rounded-full border border-slate-100 bg-white/90 text-slate-400 text-xs font-medium hover:text-slate-500 hover:border-slate-200" data-filter="workstation">Workstation</button>
+                    <button class="project-filter-btn px-3 py-1.5 rounded-full border border-slate-100 bg-white/90 text-slate-400 text-xs font-medium hover:text-slate-500 hover:border-slate-200" data-filter="smart-cabinet">Smart Cabinet</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-20 space-y-16" id="projectCaseList">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5" data-aos="slide-right"><h2 class="text-3xl font-extrabold">Modular Workstation Cluster for Technical Training Center</h2><p class="mt-4 text-gray-700">To meet the demands of a hands-on training environment, we supplied a full set of hexagonal modular workbenches featuring:</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>360-degree team collaboration layout</strong> Perfect for group training, each cluster supports 6 users with equal access and space.</li><li><strong>Heavy-duty steel frame &amp; solid wood worktop</strong> Durable and safe for daily tool handling and mechanical practice.</li><li><strong>Integrated multi-drawer storage</strong> Tools stay within reach, improving workflow and reducing downtime.</li><li><strong>Optional power module &amp; clamp fixtures</strong> Custom-fitted with electrical outlets and vices for real-world technical exercises.</li></ul><p class="mt-4 text-gray-700">This setup creates a professional, efficient, and visually impressive space, ideal for technical schools, training centers, and advanced manufacturing labs.</p></div>
+                <div class="lg:col-span-7" data-aos="slide-left"><img src="assets/projects/Modular Workstation Cluster for Technical Training Center.avif" alt="Modular Workstation Cluster for Technical Training Center" class="w-full h-[360px] object-cover" /></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 lg:order-1" data-aos="slide-right"><img src="assets/projects/ESD Workbench System for Precision Assembly Lab.avif" alt="ESD Workbench System for Precision Assembly Lab" class="w-full h-[360px] object-cover" /></div>
+                <div class="lg:col-span-5 lg:order-2" data-aos="slide-left"><h2 class="text-3xl font-extrabold">ESD Workbench System for Precision Assembly Lab</h2><p class="mt-4 text-gray-700">To support high-precision electronic assembly tasks, we provided a full layout of anti-static workbenches equipped with:</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Built-in ESD protection</strong> Grounded mats and wrist strap ports safeguard sensitive components.</li><li><strong>Drawer-integrated storage</strong> Tools and components stay organized for streamlined workflows.</li><li><strong>Adjustable task lighting &amp; power strips</strong> Ensures visual clarity and functional convenience.</li><li><strong>Matching racking systems</strong> Back-to-back shelf modules maximize storage within limited space.</li></ul><p class="mt-4 text-gray-700">This setup creates a highly functional, cleanroom-friendly workspace for electronic manufacturing, QC inspection, or R&amp;D labs.</p></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5" data-aos="slide-right"><h2 class="text-3xl font-extrabold">Hospital-Based Technical Lab｜Integrated ESD Workbench System</h2><p class="mt-4 text-gray-700">Installed within a leading hospital's internal R&amp;D and medical device testing lab, this project features our fully integrated ESD-compliant workstation system, tailored for clean, safe, and efficient workflows.</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Hospital-grade cleanliness &amp; layout</strong> Easy-to-clean surfaces, concealed wiring, and clutter-free design meet healthcare facility standards.</li><li><strong>ESD-safe worktops &amp; power rails</strong> Grounded anti-static mats and multi-socket power strips ensure protection of sensitive medical electronics.</li><li><strong>Integrated lighting &amp; shelving</strong> Adjustable LED task lights and dual-layer shelves support precise diagnostics and assembly.</li><li><strong>Ergonomic, modular design</strong> Enhances technician comfort while allowing future reconfiguration.</li></ul><p class="mt-4 text-gray-700">This setup elevates the hospital's capability to carry out device testing, calibration, and small-scale prototyping while maintaining clinical safety and operational efficiency.</p></div>
+                <div class="lg:col-span-7" data-aos="slide-left"><img src="assets/projects/Hospital-Based Technical Lab｜Integrated ESD Workbench System.webp" alt="Hospital-Based Technical Lab｜Integrated ESD Workbench System" class="w-full h-[360px] object-cover" /></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 lg:order-1" data-aos="slide-right"><img src="assets/projects/CNC Workshop Integration｜Workbench with Perforated Panel for Tool Accessibility.avif" alt="CNC Workshop Integration｜Workbench with Perforated Panel for Tool Accessibility" class="w-full h-[360px] object-cover" /></div>
+                <div class="lg:col-span-5 lg:order-2" data-aos="slide-left"><h2 class="text-3xl font-extrabold">CNC Workshop Integration｜Workbench with Perforated Panel for Tool Accessibility</h2><p class="mt-4 text-gray-700">Installed alongside high-precision CNC machines (DMG Mori, CTX 350), our modular workstations support operators with:</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Integrated perforated panel for tool visibility &amp; accessibility</strong> Enables real-time hanging of measuring tools, wrenches, and frequently used items.</li><li><strong>Solid beech wood top</strong> Ideal for part handling, manual setups, and as a staging surface near CNCs.</li><li><strong>Drawer system for categorized tool storage</strong> Keeps backup inserts, jigs, and gauges organized at the point of use.</li><li><strong>Ergonomic positioning &amp; mobility-ready design</strong> Units can be easily repositioned to match changing workflows on the shop floor.</li></ul><p class="mt-4 text-gray-700">This project showcases how smart workstation integration enhances both efficiency and professional image in modern machining environments.</p></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5" data-aos="slide-right"><h2 class="text-3xl font-extrabold">Lean Assembly Line Setup｜Perforated Panel Workstations with Component Bin Systems</h2><p class="mt-4 text-gray-700">This image captures the pre-deployment phase of a large-scale industrial workstation system project, involving:</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Multiple workstation modules</strong> Including drawer units, perforated panel tables, high-load cabinets, and utility carts.</li><li><strong>Factory pre-assembled delivery</strong> All units shipped semi-assembled on pallets for quicker on-site setup and fewer errors.</li><li><strong>Systematic staging layout</strong> Equipment organized by zone for efficient unpacking, final installation, and layout alignment.</li><li><strong>Clean floor-ready deployment</strong> Protective layers kept in place until the moment of installation to ensure pristine condition.</li></ul><p class="mt-4 text-gray-700">This project illustrates our capability to handle mid-to-large scale installations with high precision and site coordination, ideal for new production lines, plant expansions, or technical center fit-outs.</p></div>
+                <div class="lg:col-span-7" data-aos="slide-left"><img src="assets/projects/Lean Assembly Line Setup｜Perforated Panel Workstations with Component Bin Systems.webp" alt="Lean Assembly Line Setup｜Perforated Panel Workstations with Component Bin Systems" class="w-full h-[360px] object-cover" /></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 lg:order-1" data-aos="slide-right"><img src="assets/projects/Precision Tool Control for CNC｜Sliding-Type HSK Tool Holder Cabinet Installation.avif" alt="Precision Tool Control for CNC｜Sliding-Type HSK Tool Holder Cabinet Installation" class="w-full h-[360px] object-cover" /></div>
+                <div class="lg:col-span-5 lg:order-2" data-aos="slide-left"><h2 class="text-3xl font-extrabold">Precision Tool Control for CNC｜Sliding-Type HSK Tool Holder Cabinet Installation</h2><p class="mt-4 text-gray-700">To support a customer's CNC machining zone with efficient storage of high-value tooling, we supplied a dedicated sliding tool holder cabinet designed for HSK-100 / HSK-63 toolholders:</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Modular anti-collision inserts</strong> Custom-fit for HSK standards, with numbered slots for tool traceability and loss prevention.</li><li><strong>Smooth pull-out drawer design</strong> Enables easy front-facing access in narrow tool rooms, ideal for frequent tool changes.</li><li><strong>Dual-handle front access with heavy-duty runners</strong> Reinforced frame ensures stable support even under full load of steel tool holders.</li><li><strong>Fully customizable levels &amp; layout</strong> Configurable storage layers, labels, and tool assignment systems to match factory workflow.</li></ul></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5" data-aos="slide-right"><h2 class="text-3xl font-extrabold">Batch Delivery of Heavy-Duty Tool Cabinets for Industrial Zone</h2><p class="mt-4 text-gray-700">This project involved the bulk delivery and positioning of high-capacity drawer tool cabinets for an industrial client's operations zone.</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Factory pre-assembled, on-site unwrapped</strong> Cabinets were delivered fully assembled to minimize setup time and ensure factory-level alignment.</li><li><strong>Heavy-duty drawer construction</strong> Built to hold large volumes of tools and spare parts, with smooth, lockable operation.</li><li><strong>Scratch-resistant matte top boards</strong> Provide additional surface utility and durability.</li><li><strong>Clean zone deployment</strong> All cabinets were unwrapped and placed with care to protect the surrounding clean flooring and work conditions.</li></ul><p class="mt-4 text-gray-700">This turnkey delivery ensures the client receives a ready-to-use, high-capacity storage system with minimal disruption to site operations.</p></div>
+                <div class="lg:col-span-7" data-aos="slide-left"><img src="assets/projects/Batch Delivery of Heavy-Duty Tool Cabinets for Industrial Zone.avif" alt="Batch Delivery of Heavy-Duty Tool Cabinets for Industrial Zone" class="w-full h-[360px] object-cover" /></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 lg:order-1" data-aos="slide-right"><img src="assets/projects/Staging & Pre-Deployment｜Full Workstation System for Industrial Rollout.avif" alt="Staging & Pre-Deployment｜Full Workstation System for Industrial Rollout" class="w-full h-[360px] object-cover" /></div>
+                <div class="lg:col-span-5 lg:order-2" data-aos="slide-left"><h2 class="text-3xl font-extrabold">Staging &amp; Pre-Deployment｜Full Workstation System for Industrial Rollout</h2><p class="mt-4 text-gray-700">This image captures the pre-deployment phase of a large-scale industrial workstation system project, involving:</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Multiple workstation modules</strong> Including drawer units, perforated panel tables, high-load cabinets, and utility carts.</li><li><strong>Factory pre-assembled delivery</strong> All units shipped semi-assembled on pallets for quicker on-site setup and fewer errors.</li><li><strong>Systematic staging layout</strong> Equipment organized by zone for efficient unpacking, final installation, and layout alignment.</li><li><strong>Clean floor-ready deployment</strong> Protective layers kept in place until the moment of installation to ensure pristine condition.</li></ul><p class="mt-4 text-gray-700">This project illustrates our capability to handle mid-to-large scale installations with high precision and site coordination, ideal for new production lines, plant expansions, or technical center fit-outs.</p></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5" data-aos="slide-right"><h2 class="text-3xl font-extrabold">Heavy-Duty Tool Cabinet｜Pre-Installation Quality Check</h2><p class="mt-4 text-gray-700">Before every delivery, our team performs on-site structural and drawer alignment checks to ensure each cabinet meets our durability and performance standards.</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Reinforced frame and drawer base inspection</strong> Verifies load-bearing strength under industrial usage.</li><li><strong>Smooth rail testing</strong> Ensures drawers open and close with minimal resistance, even under full load.</li><li><strong>Pre-installed on pallets for secure transport</strong> Minimizes on-site assembly and reduces damage during handling.</li></ul><p class="mt-4 text-gray-700">This attention to detail guarantees that clients receive ready-to-use, factory-grade storage systems trusted by manufacturers, MRO teams, and warehouse operators across Southeast Asia.</p></div>
+                <div class="lg:col-span-7" data-aos="slide-left"><img src="assets/projects/Heavy-Duty Tool Cabinet｜Pre-Installation Quality Check.avif" alt="Heavy-Duty Tool Cabinet｜Pre-Installation Quality Check" class="w-full h-[360px] object-cover" /></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 lg:order-1" data-aos="slide-right"><img src="assets/projects/On-Site Assembly｜Custom Workstation with Perforated Panel & Solid Wood Top.avif" alt="On-Site Assembly｜Custom Workstation with Perforated Panel & Solid Wood Top" class="w-full h-[360px] object-cover" /></div>
+                <div class="lg:col-span-5 lg:order-2" data-aos="slide-left"><h2 class="text-3xl font-extrabold">On-Site Assembly｜Custom Workstation with Perforated Panel &amp; Solid Wood Top</h2><p class="mt-4 text-gray-700">As part of a turnkey workstation project, our team provided on-site installation services for custom-built benches featuring:</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Durable solid wood worktops</strong> Ideal for precision tasks, offering strength and a premium aesthetic.</li><li><strong>Perforated back panels</strong> Enable vertical tool storage and real-time access for assembly work.</li><li><strong>Modular drawer configurations</strong> Customized according to user workflow, with anti-scratch coatings and soft-close rails.</li><li><strong>Professionally handled setup</strong> Each workstation is fully assembled, aligned, and inspected on-site by our trained technicians.</li></ul><p class="mt-4 text-gray-700">From delivery to installation, we ensure a seamless handover, giving your team a ready-to-use, professional-grade work environment from day one.</p></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5" data-aos="slide-right"><h2 class="text-3xl font-extrabold">Mobile Tool Trolley｜On-Site Wheel Installation for Rapid Deployment</h2><p class="mt-4 text-gray-700">To meet a customer's need for flexible tool access and mobility, our team provided on-site assembly of heavy-duty tool trolleys with:</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Industrial-grade caster wheels</strong> Designed for smooth movement and stable positioning, even under full load.</li><li><strong>Pre-threaded frames</strong> Ensure quick attachment of wheels and accessories with minimal tools.</li><li><strong>Customizable mobility</strong> Choose between fixed, swivel, or brake-equipped wheels to suit your workspace flow.</li></ul><p class="mt-4 text-gray-700">With rapid on-site configuration, clients can immediately deploy mobile tool storage for production lines, maintenance areas, or temporary job stations.</p></div>
+                <div class="lg:col-span-7" data-aos="slide-left"><img src="assets/projects/Mobile Tool Trolley｜On-Site Wheel Installation for Rapid Deployment.avif" alt="Mobile Tool Trolley｜On-Site Wheel Installation for Rapid Deployment" class="w-full h-[360px] object-cover" /></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 lg:order-1" data-aos="slide-right"><img src="assets/projects/Heavy-Duty Mold Rack Deployment｜Safe, Accessible & Space-Efficient.avif" alt="Heavy-Duty Mold Rack Deployment｜Safe, Accessible & Space-Efficient" class="w-full h-[360px] object-cover" /></div>
+                <div class="lg:col-span-5 lg:order-2" data-aos="slide-left"><h2 class="text-3xl font-extrabold">Heavy-Duty Mold Rack Deployment｜Safe, Accessible &amp; Space-Efficient</h2><p class="mt-4 text-gray-700">To upgrade a machining plant's mold storage zone, we installed a series of 2.2-ton pull-out mold racking systems, designed for safe and efficient vertical access of heavy dies and tooling units.</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Each tray supports up to 2.2 tons</strong> Heavy-duty design ensures structural stability under full load, minimizing risk during retrieval.</li><li><strong>Pull-out drawer mechanism with locking rails</strong> Allows operators to safely pull molds forward for crane pickup, reducing forklift movement.</li><li><strong>Color-coded safety rails and handles</strong> Improve visibility and operational discipline on the shop floor.</li><li><strong>Modular, expandable frame structure</strong> Easily scales with production growth and new tooling assets.</li></ul></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5" data-aos="slide-right"><h2 class="text-3xl font-extrabold">Tool Trolley Delivery for City Service Center Rollout</h2><p class="mt-4 text-gray-700">We completed the delivery of a full fleet of industrial-grade mobile tool trolleys for a city-based technical service center, supporting high-mobility operations and daily tool access.</p><ul class="mt-5 space-y-2 text-gray-700 list-disc pl-6"><li><strong>Heavy-duty tool trolley with multiple drawers</strong> Supports organized tool management in tight urban workspaces.</li><li><strong>Fully pre-loaded with custom toolkits</strong> Trolleys come equipped with tailored hand and power tools, ready for deployment.</li><li><strong>Ergonomic handles &amp; smooth castor wheels</strong> Built for mobility, safety, and ease of use in multi-floor environments.</li><li><strong>Team-supported onsite setup</strong> All units were rolled in, checked, and handed over in one coordinated operation.</li></ul></div>
+                <div class="lg:col-span-7" data-aos="slide-left"><img src="assets/projects/Tool Trolley Delivery for City Service Center Rollout.avif" alt="Tool Trolley Delivery for City Service Center Rollout" class="w-full h-[360px] object-cover" /></div>
+            </div>
+        </section>
+
+        <section class="relative py-24 bg-fixed bg-center bg-cover" style="background-image: url('assets/docs/Comment_Bg.JPG');">
+            <div class="absolute inset-0 bg-industrial-900/65"></div>
+            <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center text-4xl font-extrabold text-white" data-aos="slide-up">Client Comments</h2>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <article class="text-center text-white" data-aos="slide-right">
+                        <p class="text-sm tracking-[0.3em]">★★★★★</p>
+                        <p class="mt-4 text-sm leading-7">"The HIS hazardous storage cabinet is solid, reliable, and clearly designed with industrial safety in mind. Installation was easy, and it gave our workshop the compliance upgrade we needed. Highly recommended!"</p>
+                        <p class="mt-6 text-sm font-semibold">John Doe</p>
+                    </article>
+                    <article class="text-center text-white" data-aos="slide-left">
+                        <p class="text-sm tracking-[0.3em]">★★★★★</p>
+                        <p class="mt-4 text-sm leading-7">"We equipped our entire assembly line with HIS workbenches. The build quality is top-notch, and the drawer layout fits perfectly with our workflow. Local support was fast and responsive too."</p>
+                        <p class="mt-6 text-sm font-semibold">Jane Smith</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-industrial-900 py-16 text-white text-center">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8">Ready to upgrade your workflow?</h2>
+            <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-white text-industrial-900 font-semibold rounded-md hover:bg-gray-100 transition-colors mb-12 shadow-lg">
+                    Chat with our experts
+                </a>
+                <div class="mb-12">
+                    <a href="assets/docs/HIS%20Company%20Profile.pdf" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 border border-white text-white font-semibold rounded-md hover:bg-white hover:text-industrial-900 transition-colors">
+                        Download Company Profile
+                    </a>
+                </div>
+                <div class="mb-10 text-sm text-gray-300">
+                    <a href="company-profile.html" class="hover:text-white transition-colors">Milestone</a>
+                    <span class="mx-2 text-gray-500">|</span>
+                    <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Insights</a>
+                    <span class="mx-2 text-gray-500">|</span>
+                    <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">E-Shop</a>
+                    <span class="mx-2 text-gray-500">|</span>
+                    <a href="compliance-check.html" class="hover:text-white transition-colors">SDS Generator</a>
+                    <span class="mx-2 text-gray-500">|</span>
+                    <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Contact</a>
+                </div>
+                <div class="border-t border-industrial-800 pt-8 text-sm text-gray-400">
+                    <p>&copy; 2026 HOFMANN INDUSTRIAL SOLUTION SDN. BHD. All rights reserved.</p>
+                    <p class="mt-2">Reg. No: 202501035528 (1636938-V)</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // 商業註解：先用標題關鍵字自動標籤，快速上線；後續只需維護覆蓋表即可逐案精準分類。
+        const solutionOverrides = {
+            // "案例完整標題": "workstation" | "smart-cabinet"
+            // 你把分類清單發我後，我會一次性補齊這裡。
+        };
+
+        const inferCategory = (title) => {
+            const t = title.toLowerCase();
+            if (/(cabinet|holder|trolley|rack|mold|tool control)/i.test(t)) return 'smart-cabinet';
+            return 'workstation';
+        };
+
+        const categoryLabel = {
+            'workstation': 'Workstation',
+            'smart-cabinet': 'Smart Cabinet'
+        };
+
+        const caseCards = Array.from(document.querySelectorAll('#projectCaseList > .max-w-7xl'));
+        caseCards.forEach((card) => {
+            const titleNode = card.querySelector('h2');
+            if (!titleNode) return;
+            const title = titleNode.textContent.trim();
+            const category = solutionOverrides[title] || inferCategory(title);
+            card.dataset.solution = category;
+
+            const badge = document.createElement('span');
+            badge.className = 'inline-flex mb-3 px-3 py-1 rounded-full bg-slate-50 border border-gray-200 text-[11px] font-semibold tracking-[0.08em] text-industrial-800 uppercase';
+            badge.textContent = categoryLabel[category] || 'Workstation';
+            titleNode.parentNode.insertBefore(badge, titleNode);
+        });
+
+        const filterButtons = Array.from(document.querySelectorAll('.project-filter-btn'));
+        const setFilter = (filter) => {
+            caseCards.forEach((card) => {
+                const show = filter === 'all' || card.dataset.solution === filter;
+                card.style.display = show ? '' : 'none';
+            });
+            filterButtons.forEach((btn) => {
+                const active = btn.dataset.filter === filter;
+                btn.className = active
+                    ? 'project-filter-btn px-3 py-1.5 rounded-full border border-slate-200 bg-slate-50/80 text-slate-500 text-xs font-medium'
+                    : 'project-filter-btn px-3 py-1.5 rounded-full border border-slate-100 bg-white/90 text-slate-400 text-xs font-medium hover:text-slate-500 hover:border-slate-200';
+            });
+        };
+
+        filterButtons.forEach((btn) => {
+            btn.addEventListener('click', () => setFilter(btn.dataset.filter));
+        });
+
+        document.querySelectorAll('[data-aos]').forEach((element) => {
+            element.setAttribute('data-aos', 'fade-up');
+        });
+        AOS.init({ duration: 650, easing: 'ease-out', once: true });
+    </script>
+</body>
+</html>

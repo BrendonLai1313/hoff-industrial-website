@@ -1,0 +1,23 @@
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 敏感信息
+.env
+*.pem
+known_hosts.old
+
+# 备份与临时文件
+*.bak
+*.tmp
+*.log
+
+# 非项目文件（大视频如不需要可取消注释）
+# *.mp4

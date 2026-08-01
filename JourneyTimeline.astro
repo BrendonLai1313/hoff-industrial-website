@@ -1,0 +1,232 @@
+---
+type Align = "left" | "right";
+
+type Milestone = {
+  year: string;
+  title: string;
+  description: string;
+  highlight: string;
+  image: string;
+  align: Align;
+};
+
+type Phase = {
+  id: string;
+  period: string;
+  title: string;
+  summary: string;
+  milestones: Milestone[];
+};
+
+const defaultPhases: Phase[] = [
+  {
+    id: "foundation",
+    period: "2016 - 2018",
+    title: "Foundation & Market Entry",
+    summary: "Started with precision tooling supply and built trust through fast-response industrial support.",
+    milestones: [
+      {
+        year: "2016",
+        title: "Company Formation & First Industrial Accounts",
+        description: "Established operation base and secured the first batch of factory clients in Malaysia.",
+        highlight: "首年拿下關鍵工業客戶，建立可複製的服務交付流程。",
+        image: "assets/projects/Heavy-Duty Tool Cabinet｜Pre-Installation Quality Check.avif",
+        align: "left"
+      },
+      {
+        year: "2018",
+        title: "Service Standardization",
+        description: "Introduced standardized quoting, delivery, and follow-up routines across tooling categories.",
+        highlight: "交期與交付品質穩定化，客戶復購率顯著提升。",
+        image: "assets/projects/Batch Delivery of Heavy-Duty Tool Cabinets for Industrial Zone.avif",
+        align: "right"
+      }
+    ]
+  },
+  {
+    id: "expansion",
+    period: "2019 - 2021",
+    title: "Workstation & Storage Expansion",
+    summary: "Expanded from product distribution into structured workstation and storage deployment projects.",
+    milestones: [
+      {
+        year: "2019",
+        title: "Modular Workstation Projects",
+        description: "Delivered modular workstation systems for training centers and technical workshops.",
+        highlight: "從單品供應升級為整體工位方案，單案價值明顯放大。",
+        image: "assets/projects/Modular Workstation Cluster for Technical Training Center.avif",
+        align: "right"
+      },
+      {
+        year: "2021",
+        title: "Factory Layout-Oriented Delivery",
+        description: "Integrated storage cabinets, perforated panels, and utilities into workflow-driven layouts.",
+        highlight: "形成「工位 + 收納 + 動線」一體化交付能力。",
+        image: "assets/projects/CNC Workshop Integration｜Workbench with Perforated Panel for Tool Accessibility.avif",
+        align: "left"
+      }
+    ]
+  },
+  {
+    id: "transformation",
+    period: "2022 - 2024",
+    title: "Smart Workflow Transformation",
+    summary: "Shifted toward smart cabinet logic, AGV-compatible material flow, and traceable operations.",
+    milestones: [
+      {
+        year: "2022",
+        title: "Smart Storage Direction",
+        description: "Brought RFID/VLM-oriented concepts into inventory control and issue management workflows.",
+        highlight: "啟動智慧倉儲與可追溯管理能力，支持精益化運營。",
+        image: "Smart Cabinet (RFID VLM).png",
+        align: "left"
+      },
+      {
+        year: "2024",
+        title: "Automation-Ready Project Delivery",
+        description: "Aligned workstation and logistics planning with AGV movement and safety compliance.",
+        highlight: "方案可直接銜接自動化升級路徑，降低後續改造成本。",
+        image: "AGV Solutions.png",
+        align: "right"
+      }
+    ]
+  },
+  {
+    id: "scale",
+    period: "2025 - Present",
+    title: "Scaled End-to-End Industrial Partner",
+    summary: "Now delivering complete productivity systems from consulting and deployment to optimization cycles.",
+    milestones: [
+      {
+        year: "2025",
+        title: "Multi-Site Rollout Capability",
+        description: "Executed coordinated deployment across multiple manufacturing sites with consistent standards.",
+        highlight: "建立跨廠區複製能力，交付效率與一致性同步提升。",
+        image: "assets/projects/Staging & Pre-Deployment｜Full Workstation System for Industrial Rollout.avif",
+        align: "right"
+      },
+      {
+        year: "2026",
+        title: "Performance-Driven Solution Framework",
+        description: "Combined tooling, workstation, storage, and automation into one measurable performance framework.",
+        highlight: "以生產力結果為導向，形成可量化的長期合作模型。",
+        image: "assets/projects/Lean Assembly Line Setup｜Perforated Panel Workstations with Component Bin Systems.webp",
+        align: "left"
+      }
+    ]
+  }
+];
+
+const phases: Phase[] = Astro.props.phases ?? defaultPhases;
+---
+
+<section class="bg-stone-50 py-16 sm:py-20">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="font-mono text-xs tracking-[0.28em] text-amber-600">DECODED JOURNEY</p>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-stone-900 sm:text-4xl">Collapsible Company Timeline</h2>
+      <p class="mt-4 text-stone-600">Click each phase to reveal milestones. Hover any milestone card to reveal a polaroid memory on the opposite side.</p>
+    </div>
+
+    <div class="mt-10 space-y-4" data-journey-accordion>
+      {phases.map((phase) => (
+        <article class="phase-item overflow-hidden rounded-2xl border border-stone-200 bg-white/90 shadow-sm transition-colors duration-300" data-phase-item>
+          <button type="button" class="phase-trigger flex w-full items-center justify-between gap-6 px-5 py-5 text-left sm:px-6" aria-expanded="false" data-phase-trigger>
+            <div>
+              <p class="font-mono text-xs tracking-[0.2em] text-stone-500">{phase.period}</p>
+              <h3 class="mt-2 text-xl font-bold text-stone-900 sm:text-2xl">{phase.title}</h3>
+              <p class="mt-2 text-sm text-stone-600">{phase.summary}</p>
+            </div>
+            <svg class="phase-arrow h-5 w-5 shrink-0 text-stone-500 transition-transform duration-300" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
+
+          <div class="phase-panel hidden border-t border-stone-200 px-4 py-8 sm:px-6" data-phase-panel>
+            <div class="relative mx-auto max-w-5xl">
+              <div class="pointer-events-none absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-amber-300/80"></div>
+              <div class="space-y-12">
+                {phase.milestones.map((milestone) => (
+                  <div class="group relative">
+                    <div class="pointer-events-none absolute left-1/2 top-7 z-20 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 border-amber-500 bg-stone-50 shadow"></div>
+
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">
+                      <div class={milestone.align === "left" ? "md:col-span-5 md:col-start-1" : "md:col-span-5 md:col-start-8"}>
+                        <article class="rounded-xl border border-stone-200 bg-white px-5 py-5 shadow-sm transition-all duration-300 group-hover:border-amber-500 group-hover:shadow-md">
+                          <p class="font-mono text-xs tracking-[0.2em] text-amber-600">{milestone.year}</p>
+                          <h4 class="mt-2 text-lg font-bold text-stone-900">{milestone.title}</h4>
+                          <p class="mt-3 text-sm leading-7 text-stone-600">{milestone.description}</p>
+                          <div class="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3">
+                            <p class="font-mono text-[11px] tracking-[0.18em] text-amber-700">关键成就</p>
+                            <p class="mt-1 text-sm font-medium text-amber-900">{milestone.highlight}</p>
+                          </div>
+                        </article>
+                      </div>
+
+                      <div class={milestone.align === "left" ? "hidden md:block md:col-span-5 md:col-start-8" : "hidden md:block md:col-span-5 md:col-start-1"}>
+                        <div
+                          class:list={[
+                            "pointer-events-none mx-auto w-[86%] max-w-[260px] origin-center rounded-sm border border-stone-200 bg-white p-2 pb-9 shadow-xl opacity-0 transition-all duration-500 ease-out",
+                            milestone.align === "left"
+                              ? "translate-x-8 rotate-2 group-hover:translate-x-0 group-hover:rotate-3 group-hover:opacity-100"
+                              : "-translate-x-8 -rotate-2 group-hover:translate-x-0 group-hover:-rotate-3 group-hover:opacity-100"
+                          ]}
+                        >
+                          <img src={milestone.image} alt={milestone.title} class="h-40 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0" loading="lazy" />
+                          <span class="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.22em] text-stone-600">{milestone.year}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-journey-accordion]");
+    if (!root) return;
+    const items = Array.from(root.querySelectorAll("[data-phase-item]"));
+
+    const closeItem = (item) => {
+      const trigger = item.querySelector("[data-phase-trigger]");
+      const panel = item.querySelector("[data-phase-panel]");
+      const arrow = item.querySelector(".phase-arrow");
+      if (!trigger || !panel || !arrow) return;
+      trigger.setAttribute("aria-expanded", "false");
+      panel.classList.add("hidden");
+      arrow.classList.remove("rotate-90", "text-amber-600");
+      item.classList.remove("border-amber-500", "bg-amber-50/30");
+      item.classList.add("border-stone-200");
+    };
+
+    const openItem = (item) => {
+      const trigger = item.querySelector("[data-phase-trigger]");
+      const panel = item.querySelector("[data-phase-panel]");
+      const arrow = item.querySelector(".phase-arrow");
+      if (!trigger || !panel || !arrow) return;
+      trigger.setAttribute("aria-expanded", "true");
+      panel.classList.remove("hidden");
+      arrow.classList.add("rotate-90", "text-amber-600");
+      item.classList.remove("border-stone-200");
+      item.classList.add("border-amber-500", "bg-amber-50/30");
+    };
+
+    items.forEach((item) => {
+      const trigger = item.querySelector("[data-phase-trigger]");
+      if (!trigger) return;
+      closeItem(item);
+      trigger.addEventListener("click", () => {
+        const expanded = trigger.getAttribute("aria-expanded") === "true";
+        items.forEach((i) => closeItem(i));
+        if (!expanded) openItem(item);
+      });
+    });
+  })();
+</script>

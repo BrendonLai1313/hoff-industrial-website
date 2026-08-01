@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDS Generator | HOFFMANN INDUSTRIAL SOLUTION</title>
+    <meta name="description" content="Automated Safety Data Sheet generation for DOSH USECHH compliance. Upload chemical photos and get your SDS report.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        industrial: { 900: '#111827', 800: '#1F2937', 50: '#F9FAFB' },
+                        brand: { 500: '#2563EB' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .upload-zone { transition: all 0.2s ease; }
+        .upload-zone.drag-over { border-color: #2563EB; background-color: #EFF6FF; }
+        .thumb-wrapper { position: relative; display: inline-block; }
+        .sds-inline-trigger { transition: all 0.2s ease; }
+        .sds-inline-trigger:hover { transform: translateY(-1px); }
+        .thumb-delete-btn {
+            position: absolute; top: -6px; right: -6px;
+            width: 20px; height: 20px; border-radius: 50%;
+            background: #EF4444; color: white; border: 2px solid white;
+            font-size: 12px; line-height: 16px; text-align: center;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: transform 0.15s ease;
+        }
+        .thumb-delete-btn:hover { transform: scale(1.2); }
+    </style>
+</head>
+<body class="bg-white text-industrial-900 font-sans antialiased">
+
+    <!-- ====== 导航栏 ====== -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center px-1 py-1">
+                    <a href="index.html">
+                        <img src="assets/brand/HIS Name Logo.jpg" alt="HIS Logo" class="h-12 w-auto object-contain" />
+                    </a>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="project.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Projects</a>
+                    <div class="relative group">
+                        <button type="button" class="inline-flex items-center gap-1 text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">
+                            Solutions
+                            <svg class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+                        </button>
+                        <div class="invisible absolute right-0 top-full z-50 mt-3 w-56 rounded-xl border border-gray-200 bg-white p-2 opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                            <a href="product-workstation.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Workstation</a>
+                            <a href="product-smart-cabinet.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">Smart Cabinet</a>
+                            <a href="product-agv.html" class="block rounded-lg px-3 py-2 text-sm text-industrial-800 hover:bg-industrial-50">AGV</a>
+                            <a href="compliance-check.html" class="block rounded-lg px-3 py-2 text-sm font-semibold text-brand-500 hover:bg-blue-50">SDS Generator</a>
+                        </div>
+                    </div>
+                    <a href="company-profile.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Milestone</a>
+                    <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Insights</a>
+                    <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-brand-500 hover:text-industrial-900 transition-colors">E-Shop</a>
+                    <a href="contact.html" class="text-sm font-medium text-industrial-800 hover:text-brand-500 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== Hero ====== -->
+    <section class="relative py-24 bg-industrial-900 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-industrial-900 via-industrial-800 to-industrial-900"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10" style="background: radial-gradient(circle at 70% 30%, #2563EB 0%, transparent 70%);"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-up">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400 mb-4">SDS Generator — Free Compliance Tool</p>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                        Auto-generate your<br/>
+                        <span class="text-brand-500">Safety Data Sheets</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8 max-w-lg leading-relaxed">
+                        Snap a photo of your chemical products. Our engine cross-checks 
+                        against <strong class="text-white">DOSH USECHH, NFPA 30 & CPL 2013</strong> — 
+                        and generates your SDS report automatically.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-400">
+                        <span class="inline-flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            No cost, no commitment
+                        </span>
+                        <span class="inline-flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Confidential & secure
+                        </span>
+                        <span class="inline-flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            Report in 24 hours
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- 表单 -->
+                <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+                        <h3 class="text-xl font-bold text-industrial-900 mb-6">Start Your Free Assessment</h3>
+                        
+                        <form id="compliance-form" class="space-y-5">
+                            <div>
+                                <label for="company" class="block text-sm font-semibold text-industrial-900 mb-1.5">Company Name *</label>
+                                <input type="text" id="company" name="company" required placeholder="e.g. Giesecke+Devrient"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition" />
+                            </div>
+                            <div>
+                                <label for="name" class="block text-sm font-semibold text-industrial-900 mb-1.5">Your Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="e.g. Ahmad bin Ismail"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition" />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-industrial-900 mb-1.5">Work Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="name@company.com"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition" />
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold text-industrial-900 mb-1.5">Phone (WhatsApp preferred)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+60 12-345 6789"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition" />
+                            </div>
+                            <div>
+                                <label for="chemicals" class="block text-sm font-semibold text-industrial-900 mb-1.5">
+                                    Chemicals on site <span class="text-gray-400 font-normal">(list names)</span>
+                                </label>
+                                <textarea id="chemicals" name="chemicals" rows="2" placeholder="e.g. Loctite 243, 3M Spray Adhesive, Acetone..."
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition resize-none"></textarea>
+                            </div>
+                            <div>
+                                <label for="qty" class="block text-sm font-semibold text-industrial-900 mb-1.5">
+                                    Estimated Qty <span class="text-gray-400 font-normal">(affects cabinet sizing &amp; quotation)</span>
+                                </label>
+                                <input type="text" id="qty" name="qty" placeholder="e.g. 5 drums, 200L, 12 bottles..."
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-industrial-900 mb-1.5">
+                                    Upload Photos <span class="text-gray-400 font-normal">(storage area + labels)</span>
+                                </label>
+                                <div id="upload-zone" class="upload-zone border-2 border-dashed border-gray-300 rounded-xl p-6 text-center cursor-pointer hover:border-brand-500 hover:bg-blue-50/50 transition">
+                                    <input type="file" id="photos" name="photos" accept="image/*" multiple class="hidden" />
+                                    <div id="upload-placeholder">
+                                        <svg class="w-10 h-10 text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                        <p class="text-sm text-gray-500 mb-1"><strong class="text-brand-500">Click to upload</strong> or drag & drop</p>
+                                        <p class="text-xs text-gray-400">PNG, JPG, HEIC up to 5MB each</p>
+                                    </div>
+                                    <div id="upload-preview" class="hidden">
+                                        <p class="text-sm font-semibold text-green-600 mb-3" id="file-count">0 files selected</p>
+                                        <div id="thumbnail-strip" class="flex flex-wrap gap-2 justify-center mb-2"></div>
+                                        <p class="text-xs text-gray-400">Click to change or add more</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-industrial-900 mb-1.5">
+                                    Upload Existing SDS PDF <span class="text-gray-400 font-normal">(optional, seeds database)</span>
+                                </label>
+                                <div class="rounded-lg border border-gray-200 bg-gray-50/70 px-4 py-3">
+                                    <input type="file" id="sds-pdfs" name="sds-pdfs" accept="application/pdf" multiple class="hidden" />
+                                    <div class="flex flex-wrap items-center gap-3">
+                                        <button type="button" id="sds-upload-trigger" class="sds-inline-trigger inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-industrial-800 shadow-sm hover:border-brand-500 hover:text-brand-500">
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                            Upload SDS PDF
+                                        </button>
+                                        <p id="sds-placeholder" class="text-xs text-gray-500">Optional. Add existing SDS files only if you already have them.</p>
+                                    </div>
+                                    <div id="sds-preview" class="hidden mt-3">
+                                        <p class="text-sm font-semibold text-green-600 mb-3" id="sds-file-count">0 PDFs selected</p>
+                                        <div id="sds-file-list" class="text-left space-y-1 max-h-40 overflow-y-auto"></div>
+                                        <p class="text-xs text-gray-400 mt-2">Use the button above to add more PDFs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="notes" class="block text-sm font-semibold text-industrial-900 mb-1.5">
+                                    Site Observations <span class="text-gray-400 font-normal">(ventilation, cabinet type, floor, etc.)</span>
+                                </label>
+                                <textarea id="notes" name="notes" rows="2" placeholder="Any previous Bomba inspection? Recent spills?"
+                                    class="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition resize-none"></textarea>
+                            </div>
+                            <button type="submit" id="submit-btn" 
+                                class="w-full rounded-lg bg-brand-500 text-white font-semibold px-5 py-3.5 hover:bg-industrial-900 transition-colors text-base shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
+                                Submit for Free Assessment
+                            </button>
+                            <p class="text-xs text-gray-400 text-center">By submitting, you agree to our assessment being informational only. No spam, ever.</p>
+                        </form>
+                        
+                        <div id="success-message" class="hidden text-center py-8">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-industrial-900 mb-2">Assessment Request Received!</h3>
+                            <p class="text-gray-500 text-sm mb-4">We'll email your report to <strong id="confirm-email" class="text-brand-500"></strong> within 24 hours.</p>
+                            <p class="text-xs text-gray-400">Need urgent help? <a href="https://wa.me/60165253588" target="_blank" class="text-brand-500 underline">WhatsApp us now</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== How It Works ====== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-industrial-900 text-center mb-4" data-aos="fade-up">How It Works</h2>
+            <p class="text-center text-gray-500 mb-16 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="50">Three simple steps to get your free DOSH compliance assessment.</p>
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-industrial-900 mb-2">1. Snap & Submit</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Take photos of your chemical storage area and labels. Fill in basic info — under 3 minutes.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-industrial-900 mb-2">2. AI-Powered Analysis</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Our engine cross-checks your chemicals against DOSH USECHH, NFPA 30, and CPL 2013.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <svg class="w-8 h-8 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-industrial-900 mb-2">3. Get Your Report</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">Receive a detailed compliance report via email within 24 hours — with actionable next steps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== 法规覆盖 ====== -->
+    <section class="py-16 bg-industrial-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-industrial-900 text-center mb-10" data-aos="fade-up">We Check Against These Regulations</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <p class="font-bold text-industrial-900 text-lg">DOSH USECHH</p>
+                    <p class="text-xs text-gray-500 mt-1">Chemical Hazard Classification</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <p class="font-bold text-industrial-900 text-lg">CPL 2013</p>
+                    <p class="text-xs text-gray-500 mt-1">Classification, Labelling & Packaging</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <p class="font-bold text-industrial-900 text-lg">NFPA 30</p>
+                    <p class="text-xs text-gray-500 mt-1">Flammable Storage Standards</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <p class="font-bold text-industrial-900 text-lg">OSHA 1994</p>
+                    <p class="text-xs text-gray-500 mt-1">Employer Duty of Care</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== 风险提醒 ====== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-industrial-900 mb-6" data-aos="fade-up">The Cost of Non-Compliance</h2>
+            <div class="grid sm:grid-cols-3 gap-6 text-left" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-red-50 rounded-xl p-6 border border-red-100">
+                    <p class="text-3xl font-extrabold text-red-600 mb-2">RM 500K</p>
+                    <p class="text-sm text-gray-700">Maximum criminal penalty under DOSH regulations for serious violations</p>
+                </div>
+                <div class="bg-red-50 rounded-xl p-6 border border-red-100">
+                    <p class="text-3xl font-extrabold text-red-600 mb-2">Bomba</p>
+                    <p class="text-sm text-gray-700">Fire Certificate revocation by Bomba — immediate business shutdown</p>
+                </div>
+                <div class="bg-red-50 rounded-xl p-6 border border-red-100">
+                    <p class="text-3xl font-extrabold text-red-600 mb-2">100%</p>
+                    <p class="text-sm text-gray-700">Insurance claim rejection if non-compliant storage caused the incident</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== 页脚 ====== -->
+    <footer class="bg-industrial-900 py-16 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8">Ready to upgrade your workflow?</h2>
+            <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-white text-industrial-900 font-semibold rounded-md hover:bg-gray-100 transition-colors mb-12 shadow-lg">
+                Chat with our experts
+            </a>
+            <div class="mb-10 text-sm text-gray-300">
+                <a href="company-profile.html" class="hover:text-white transition-colors">Milestone</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="https://blog.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Insights</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="https://store.hoff-industrial.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">E-Shop</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="compliance-check.html" class="hover:text-white transition-colors">SDS Generator</a>
+                <span class="mx-2 text-gray-500">|</span>
+                <a href="https://wa.me/60165253588" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <div class="border-t border-industrial-800 pt-8 text-sm text-gray-400">
+                <p>&copy; 2026 HOFFMANN INDUSTRIAL SOLUTION SDN. BHD. All rights reserved.</p>
+                <p class="mt-2">Reg. No: 202501035528 (1636938-V)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 900, once: true });
+
+        const uploadZone = document.getElementById('upload-zone');
+        const photoInput = document.getElementById('photos');
+        const uploadPlaceholder = document.getElementById('upload-placeholder');
+        const uploadPreview = document.getElementById('upload-preview');
+        const fileCountEl = document.getElementById('file-count');
+        const thumbnailStrip = document.getElementById('thumbnail-strip');
+
+        const sdsUploadTrigger = document.getElementById('sds-upload-trigger');
+        const sdsInput = document.getElementById('sds-pdfs');
+        const sdsPlaceholder = document.getElementById('sds-placeholder');
+        const sdsPreview = document.getElementById('sds-preview');
+        const sdsFileCountEl = document.getElementById('sds-file-count');
+        const sdsFileList = document.getElementById('sds-file-list');
+        let selectedSdsFiles = [];
+
+        uploadZone.addEventListener('click', () => photoInput.click());
+        uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+        uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('drag-over');
+            for (let i = 0; i < e.dataTransfer.files.length; i++) {
+                selectedFiles.push(e.dataTransfer.files[i]);
+            }
+            syncFilesToInput();
+            updateFilePreview();
+        });
+        photoInput.addEventListener('change', () => {
+            for (let i = 0; i < photoInput.files.length; i++) {
+                selectedFiles.push(photoInput.files[i]);
+            }
+            syncFilesToInput();
+            updateFilePreview();
+        });
+
+        sdsUploadTrigger.addEventListener('click', () => sdsInput.click());
+        sdsInput.addEventListener('change', () => {
+            for (let i = 0; i < sdsInput.files.length; i++) {
+                selectedSdsFiles.push(sdsInput.files[i]);
+            }
+            syncSdsToInput();
+            updateSdsPreview();
+        });
+
+        function syncSdsToInput() {
+            const dt = new DataTransfer();
+            selectedSdsFiles.forEach(f => dt.items.add(f));
+            sdsInput.files = dt.files;
+        }
+
+        function removeSdsFile(index) {
+            selectedSdsFiles.splice(index, 1);
+            syncSdsToInput();
+            updateSdsPreview();
+        }
+
+        function updateSdsPreview() {
+            const count = selectedSdsFiles.length;
+            if (count > 0) {
+                sdsPlaceholder.textContent = 'You can add more PDFs anytime with the button above.';
+                sdsPreview.classList.remove('hidden');
+                sdsFileCountEl.textContent = count + ' PDF' + (count > 1 ? 's' : '') + ' selected';
+                sdsFileList.innerHTML = '';
+                selectedSdsFiles.forEach((f, idx) => {
+                    const row = document.createElement('div');
+                    row.className = 'flex items-center justify-between bg-gray-50 rounded-md px-3 py-1.5 text-sm';
+                    row.innerHTML = '<span class="truncate max-w-[240px] text-gray-700">' + f.name + '</span>' +
+                        '<span class="text-gray-400 text-xs ml-2">(' + (f.size / 1024).toFixed(0) + ' KB)</span>' +
+                        '<span class="ml-2 text-red-500 cursor-pointer font-bold hover:text-red-700" data-idx="' + idx + '">&times;</span>';
+                    row.querySelector('[data-idx]').addEventListener('click', function(ev) {
+                        ev.stopPropagation();
+                        removeSdsFile(parseInt(this.getAttribute('data-idx')));
+                    });
+                    sdsFileList.appendChild(row);
+                });
+            } else {
+                sdsPlaceholder.textContent = 'Optional. Add existing SDS files only if you already have them.';
+                sdsPreview.classList.add('hidden');
+                sdsFileList.innerHTML = '';
+            }
+        }
+
+        let selectedFiles = [];
+
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            syncFilesToInput();
+            updateFilePreview();
+        }
+
+        function syncFilesToInput() {
+            const dt = new DataTransfer();
+            selectedFiles.forEach(f => dt.items.add(f));
+            photoInput.files = dt.files;
+        }
+
+        function updateFilePreview() {
+            const count = selectedFiles.length;
+            if (count > 0) {
+                uploadPlaceholder.classList.add('hidden');
+                uploadPreview.classList.remove('hidden');
+                fileCountEl.textContent = count + ' file' + (count > 1 ? 's' : '') + ' selected';
+                thumbnailStrip.innerHTML = '';
+                for (let i = 0; i < count; i++) {
+                    const file = selectedFiles[i];
+                    if (!file.type.startsWith('image/')) continue;
+                    const reader = new FileReader();
+                    reader.onload = (function(idx, f) {
+                        return function(e) {
+                            const wrapper = document.createElement('div');
+                            wrapper.className = 'thumb-wrapper';
+
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.alt = f.name;
+                            img.title = f.name + ' (' + (f.size / 1024).toFixed(0) + ' KB)';
+                            img.className = 'w-16 h-16 object-cover rounded-lg border-2 border-green-300 shadow-sm';
+
+                            const delBtn = document.createElement('span');
+                            delBtn.className = 'thumb-delete-btn';
+                            delBtn.innerHTML = '&times;';
+                            delBtn.title = 'Remove ' + f.name;
+                            delBtn.addEventListener('click', (ev) => {
+                                ev.stopPropagation();
+                                removeFile(idx);
+                            });
+
+                            wrapper.appendChild(img);
+                            wrapper.appendChild(delBtn);
+                            thumbnailStrip.appendChild(wrapper);
+                        };
+                    })(i, file);
+                    reader.readAsDataURL(file);
+                }
+            } else {
+                uploadPlaceholder.classList.remove('hidden');
+                uploadPreview.classList.add('hidden');
+                thumbnailStrip.innerHTML = '';
+            }
+        }
+
+        const form = document.getElementById('compliance-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            const formData = {
+                company: document.getElementById('company').value.trim(),
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                chemicals: document.getElementById('chemicals').value.trim(),
+                qty: document.getElementById('qty').value.trim(),
+                notes: document.getElementById('notes').value.trim(),
+                timestamp: new Date().toISOString()
+            };
+
+            const files = photoInput.files;
+            if (files.length > 0) {
+                formData.photos = [];
+                for (let i = 0; i < files.length; i++) {
+                    if (files[i].size > 5 * 1024 * 1024) {
+                        alert('File "' + files[i].name + '" exceeds 5MB limit and will be skipped.');
+                        continue;
+                    }
+                    const base64 = await fileToBase64(files[i]);
+                    formData.photos.push({ name: files[i].name, type: files[i].type, data: base64 });
+                }
+            }
+
+            if (selectedSdsFiles.length > 0) {
+                formData.sdsPdfs = [];
+                for (let i = 0; i < selectedSdsFiles.length; i++) {
+                    if (selectedSdsFiles[i].size > 10 * 1024 * 1024) {
+                        alert('PDF "' + selectedSdsFiles[i].name + '" exceeds 10MB limit and will be skipped.');
+                        continue;
+                    }
+                    const base64 = await fileToBase64(selectedSdsFiles[i]);
+                    formData.sdsPdfs.push({ name: selectedSdsFiles[i].name, type: 'application/pdf', data: base64 });
+                }
+            }
+
+            // ===== 智能提交模式 =====
+            // 部署 Apps Script 后，把下面的 URL 替换为真实的 Web App URL
+            // 替换后会自动走真实提交（写入 Sheet + 存照片 + 发邮件）
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx0jeq8VzsyuwH7zwb4cVor13RvhqYCKDCtpACvk6rcMekC3nmfTIeq3wJlmCu5MoDn/exec';
+            const isLive = APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+            // 始终打印到 Console 方便调试
+            console.log('=== SDS Generator 提交数据 ===');
+            console.log('公司:', formData.company);
+            console.log('姓名:', formData.name);
+            console.log('邮箱:', formData.email);
+            console.log('电话:', formData.phone);
+            console.log('化学品:', formData.chemicals);
+            console.log('数量:', formData.qty);
+            console.log('现场:', formData.notes);
+            console.log('时间:', formData.timestamp);
+            console.log('图片数量:', formData.photos ? formData.photos.length : 0);
+            console.log('模式:', isLive ? '✅ 真实提交（写入 Sheet）' : '🧪 本地模拟');
+            console.log('===============================');
+
+            if (isLive) {
+                // 真实提交到 Google Apps Script
+                try {
+                    const response = await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(formData)
+                    });
+                    console.log('✅ 已提交到 Apps Script');
+                } catch (err) {
+                    console.error('提交失败:', err);
+                }
+            } else {
+                // 本地模拟：等 1.5 秒模拟网络延迟
+                console.log('ℹ️ 本地模式：数据仅打印到 Console，未写入 Sheet');
+                await new Promise(resolve => setTimeout(resolve, 1500));
+            }
+
+            form.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+            document.getElementById('confirm-email').textContent = formData.email;
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit for Free Assessment';
+        });
+
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+    </script>
+</body>
+</html>

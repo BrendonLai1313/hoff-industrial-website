@@ -1,0 +1,500 @@
+HIS Company Timeline 使用手册（v1）
+
+一、文案字数上限（请严格遵守）
+1) Phase 标题（title）：建议 18~36 字，硬上限 42 字
+2) Phase 简述（summary）：建议 40~80 字，硬上限 96 字
+3) Milestone 标题（title）：建议 18~40 字，硬上限 58 字
+4) Milestone 说明（description）：建议 60~120 字，硬上限 140 字
+5) 关键成就（highlight）：建议 16~32 字，硬上限 42 字
+6) period：建议格式 “2019 - 2021”，不要超过 18 字
+7) year：建议 4 位年份（例如 2026）
+
+说明：
+- 页面已启用自动截断（超出会加省略号），但建议从源头控制字数，视觉会更整齐。
+- 英文字符与中文字符混排时，建议按“阅读视觉长度”而不是单纯字数判断。
+
+二、图片规范（防走位核心）
+1) 推荐比例：4:3（最稳）
+2) 推荐尺寸：1200x900 或 1600x1200
+3) 最低宽度：不低于 1000px
+4) 文件格式：优先 webp / avif，次选 jpg / png
+5) 单张大小：建议 < 500KB
+6) 文件命名：英文或数字，避免特殊符号
+
+说明：
+- 页面显示已固定为 4:3 裁切并统一外框，能大幅降低走位概率。
+- 若原图主体在边缘，建议先裁切后上传，避免被 object-cover 裁掉重点。
+
+三、常规上载步骤（最常用）
+步骤 1：准备图片
+- 把图片放到项目目录（建议 assets/projects/）
+- 统一 4:3 比例，命名规范
+
+步骤 2：更新数据源
+- 编辑文件：assets/data/company-timeline.js
+- 按既有结构修改对应 phase/milestone
+- 每个 milestone 必填字段：
+  year / title / description / highlight / image / align
+
+步骤 3：检查 align
+- align 只能填 left 或 right
+- 建议同一 phase 内交错排列（left, right, left...）
+
+步骤 4：本地预览
+- 刷新 company-profile.html（建议 Ctrl+F5）
+- 检查：手风琴、时间轴、图片 hover、手机版显示
+
+步骤 5：上线
+- 通过现有发布流程同步到 Hostinger
+- 上线后抽检首屏 + 时间轴 2 个 phase
+
+四、常见错误与快速修复
+1) 报错：Timeline data failed to load
+- 检查 assets/data/company-timeline.js 是否语法错误（逗号、引号）
+- 检查是否误删 window.COMPANY_TIMELINE_DATA
+
+2) 图片不显示
+- 检查 image 路径是否存在
+- 检查文件名大小写、空格、特殊符号
+
+3) 左右错位/高度不齐
+- 检查 align 是否写错（只能 left/right）
+- 文案是否超长，尤其 description/highlight
+- 图片是否严重非 4:3，建议先裁切
+
+五、一版可直接使用的时间轴内容（示例）
+可直接粘贴替换到 assets/data/company-timeline.js 的 phases 内（示例摘要）
+
+[
+  {
+    id: "foundation",
+    period: "2016 - 2018",
+    title: "Foundation & Market Entry",
+    summary: "Started with precision tooling supply and built trust through fast-response industrial support.",
+    milestones: [
+      {
+        year: "2016",
+        title: "Company Formation & First Industrial Accounts",
+        description: "Established operation base and secured the first batch of factory clients in Malaysia.",
+        highlight: "首年拿下關鍵工業客戶，建立可複製交付流程。",
+        image: "Tooling1.png",
+        align: "left"
+      },
+      {
+        year: "2018",
+        title: "Service Standardization",
+        description: "Introduced standardized quoting, delivery, and follow-up routines across tooling categories.",
+        highlight: "交期與交付品質穩定化，客戶復購率提升。",
+        image: "AGV Solutions.png",
+        align: "right"
+      }
+    ]
+  },
+  {
+    id: "expansion",
+    period: "2019 - 2021",
+    title: "Workstation & Storage Expansion",
+    summary: "Expanded from product distribution into structured workstation and storage deployment projects.",
+    milestones: [
+      {
+        year: "2019",
+        title: "Modular Workstation Projects",
+        description: "Delivered modular workstation systems for training centers and technical workshops.",
+        highlight: "由單品供應升級為整體工位方案。",
+        image: "assets/projects/Modular Workstation Cluster for Technical Training Center.avif",
+        align: "right"
+      },
+      {
+        year: "2021",
+        title: "Factory Layout-Oriented Delivery",
+        description: "Integrated storage cabinets, perforated panels, and utilities into workflow-driven layouts.",
+        highlight: "形成工位+收纳+动线一体化能力。",
+        image: "assets/projects/CNC Workshop Integration｜Workbench with Perforated Panel for Tool Accessibility.avif",
+        align: "left"
+      }
+    ]
+  }
+]
+
+六、发布前检查清单（每次都做）
+- 文案是否超出本手册字数上限
+- 每个 milestone 是否都有 image 与 align
+- 图片路径是否可访问
+- 桌机 hover 是否正常出图
+- 手机版是否能看到图（卡片下方）
+- Phase 展开后边框高亮与箭头旋转是否正常
+
+七、维护原则（长期）
+- 只改数据，不改结构：优先改 assets/data/company-timeline.js
+- 每次只改一个 phase，避免批量修改难以排错
+- 每次更新保留前一版备份（至少 1 份）
+
+八、Projects 上载规范（与时间轴同逻辑）
+目标：
+- 你后续新增 Projects 时，图片与文案不破版、不走位、可快速上线。
+
+Projects 文案字数上限（建议）
+1) 项目主标题（h2）：
+- 建议 22~68 字
+- 硬上限 88 字
+
+2) 项目首段简介（第一段 p）：
+- 建议 70~170 字
+- 硬上限 220 字
+
+3) 项目要点（ul > li）：
+- 建议 3~4 条
+- 每条建议 22~80 字
+- 每条硬上限 100 字
+
+4) 结尾说明（最后一段 p）：
+- 建议 45~130 字
+- 硬上限 180 字
+
+Projects 图片规范（建议）
+1) 推荐比例：16:9（与当前 project.html 卡片高度最匹配）
+2) 推荐尺寸：1600x900 或 1920x1080
+3) 最低宽度：1200px
+4) 格式：优先 avif / webp，其次 jpg
+5) 单张大小：建议 < 700KB
+
+九、Projects 手把手上载步骤（当前结构）
+前提：
+- 你当前 Projects 页面是静态结构（project.html 一组组区块），不是自动读 JSON。
+- 所以这套步骤是“最稳最直接”的手动上载方式。
+
+步骤 1：准备图片
+- 把图片放到：assets/projects/
+- 建议文件名用英文与空格，避免特殊符号
+- 先确认图比例接近 16:9
+
+步骤 2：复制一组现有区块
+- 打开 project.html
+- 找到一组完整项目区块（包含 h2、p、ul、img）
+- 整块复制，粘贴到你希望出现的位置
+
+步骤 3：替换文案
+- 改 h2 标题
+- 改第一段简介
+- 改 ul 里的 3~4 条要点
+- 改最后一段收束文案
+- 对照本手册字数上限，超长就删减
+
+步骤 4：替换图片路径与 alt
+- img src 改成新图路径（例如 assets/projects/Your New Project.avif）
+- img alt 改成与标题一致或近似
+
+步骤 5：控制左右交错节奏
+- 观察相邻两组区块：
+  - 一组“图在左文在右”
+  - 下一组“图在右文在左”
+- 这样视觉节奏会更高级，也不易疲劳
+
+步骤 6：本地预览
+- 刷新 project.html（建议 Ctrl+F5）
+- 检查桌机与手机：
+  - 图片是否被异常裁切
+  - 文案是否溢出或拥挤
+  - 每组高度是否大致均衡
+
+步骤 7：上线
+- 通过现有发布流程同步到 Hostinger
+- 上线后至少检查首屏与新增项目所在区域
+
+十、Projects 常见问题与修复
+1) 图片显示但“主体被切掉”
+- 先把原图裁成 16:9 再上传
+- 避免把关键物件放在四角边缘
+
+2) 某一组比其他组高很多
+- 优先缩短第一段简介与要点条目
+- 控制要点条目在 3~4 条
+- 每条尽量不超过 2 行
+
+3) 新增后布局看起来“不顺眼”
+- 检查左右交错节奏是否连续打乱
+- 优先保持“左右左右”的规律
+
+4) 图片不显示
+- 检查路径是否写对
+- 检查文件名大小写与空格
+
+十一、Projects 建议数据模板（你给我内容就能一键代填）
+你每次只要按下面模板发我，我就能直接帮你完成上载：
+
+Project 标题：
+Project 简介：
+要点 1：
+要点 2：
+要点 3：
+要点 4（可选）：
+结尾说明：
+图片文件名：
+希望位置（第几组后面）：
+希望图文方向（图左文右 / 图右文左 / 自动）：
+
+十二、统一审美红线（Timeline + Projects 共用）
+1) 不追求“字很多”，追求“扫读效率”
+2) 一屏内每个模块尽量只保留 1 个核心信息
+3) 图片优先“主体清晰”，再考虑“画面复杂”
+4) 超过字数上限就删，不硬塞
+5) 每次改动后都做桌机+手机双检查
+
+十三、Projects 弱分类上载规范（已上线版本）
+目的：
+- 在不拆分页面结构的前提下，提升案例“可找性”，同时保留 All 视图的案例体量感。
+- 当前支持分类：workstation、smart-cabinet（前台显示为 Workstation、Smart Cabinet）。
+
+当前页面逻辑（给维护者）：
+- 文件：project.html
+- 已有筛选按钮：All / Workstation / Smart Cabinet
+- 默认显示 All（避免案例数量落差影响品牌观感）
+- 分类机制：先自动识别，再用覆盖表人工修正
+
+维护时需要提供的最小信息（每条案例）：
+1) 案例完整标题（必须与页面 h2 完全一致）
+2) 分类值（只能填以下二选一）
+- workstation
+- smart-cabinet
+3) 是否为“强制覆盖”（是/否）
+
+四步上载流程（弱分类版本）：
+步骤 1：先正常上载项目内容
+- 先按第九章流程，把新案例图文上到 project.html
+- 完成后再做分类，不要分类与内容同步大改
+
+步骤 2：先看自动分类结果
+- 刷新 project.html
+- 看案例标题上方的分类徽章是否正确
+- 若正确，不需要额外操作
+
+步骤 3：提交“覆写清单”
+- 把自动分类错误或需要指定的案例，用下面模板提交
+- 由维护者补入 project.html 的 solutionOverrides 对象
+
+步骤 4：验收筛选
+- 依次点击 All / Workstation / Smart Cabinet
+- 确认每个案例都在正确分类下出现
+- 确认默认打开页面时是 All
+
+覆写提交模板（可直接复制）：
+- `案例完整标题` → `分类`
+
+示例：
+- `Modular Workstation Cluster for Technical Training Center` → `workstation`
+- `Precision Tool Control for CNC｜Sliding-Type HSK Tool Holder Cabinet Installation` → `smart-cabinet`
+- `Heavy-Duty Mold Rack Deployment｜Safe, Accessible & Space-Efficient` → `smart-cabinet`
+
+覆盖表维护规则（避免后续混乱）：
+1) 只改覆盖表，不改自动识别规则（除非你明确要求）
+2) 标题必须全字匹配，避免“半匹配”误伤其他案例
+3) 每次新增案例后，只追加本次新增项，不重写旧表
+4) 若标题后续改名，记得同步更新覆盖表键名
+
+发布前检查（弱分类专用）：
+- 所有新案例都有分类徽章
+- 筛选按钮状态切换正常（激活态样式正确）
+- All 视图可看到完整案例墙
+- 单一分类视图不出现“空白断层”或大面积留白
+- 手机端按钮可点击且不换行错位
+
+
+十四、HIS 网站自动化维护与发布手册（SOP）
+适用目标：
+- 让 HIS 官网更新做到“改内容 -> 自动发布 -> 自动备份 -> 自动记录”。
+- 尽量减少手工操作，降低出错率，保证可追溯。
+
+推荐自动化架构（文字流程图）：
+- 内容输入（Google Forms / Google Docs） -> n8n 工作流
+- n8n 处理文案与图片 -> 提交到 GitHub 仓库（或写入 WordPress）
+- GitHub CI/CD 自动构建 -> Hostinger 自动拉取并发布
+- 发布结果回写：Google Sheets / Notion / 邮件通知
+
+十四-1、角色分工（最小可执行）
+- 内容负责人：只管填表单、上传素材、确认文案。
+- 网站维护者：审核 PR（Pull Request）、处理异常。
+- 自动化负责人：维护 n8n 工作流与 API 凭据（不写明文密码）。
+
+十四-2、一次性准备清单（只做一次）
+1) GitHub
+- 创建仓库（建议：his-official-site）
+- 开启分支保护（main 只能通过 PR 合并）
+- 设置 Secrets（仅仓库设置中保存，不写入文档）：
+  - FTP/SFTP 或部署 Token（如需）
+  - HOSTINGER_SSH_KEY（如用 SSH 自动拉取）
+
+2) Hostinger
+- 准备站点目录（示例）：/home/<hostinger_user>/public_html
+- 确认可通过 Git 或 SFTP 接收发布产物
+- 若使用 VPS 中转：确保 VPS 到 Hostinger 连通
+
+3) n8n
+- 创建 API Key（只保存到凭据管理，不写进手册）
+- 新建 3 条工作流：
+  - 内容入库流（Forms/Docs -> 结构化数据）
+  - 发布触发流（审核通过 -> GitHub Push/PR）
+  - WordPress 同步流（发布后 -> WP REST API）
+
+4) WordPress
+- 创建应用密码（Application Password）
+- 开启 REST API（默认可用）
+- 准备目标分类、标签、作者 ID
+
+5) Google
+- 建立 Google Form（字段见本章模板）
+- 建立 Google Sheet（记录每次发布日志）
+
+十四-3、标准发布流程（每次更新都按此执行）
+步骤 1：提交内容
+- 内容负责人填写 Google Form，上传图片并填写页面类型。
+- 表单提交后，n8n 自动写入“待审核列表”。
+
+步骤 2：审核与确认
+- 网站维护者收到通知（Email/Slack/WhatsApp）。
+- 仅检查 4 项：标题、字数、图片比例、链接有效性。
+- 审核通过后点“批准发布”。
+
+步骤 3：自动提交 GitHub
+- n8n 根据模板更新对应文件（如 project.html、company-timeline.js）。
+- n8n 自动创建分支并发起 PR（示例：content/update-2026-04-23）。
+- 合并 PR 后触发 GitHub Actions。
+
+步骤 4：CI/CD 自动发布
+- GitHub Actions 执行：校验 -> 构建（如有）-> 部署到 Hostinger。
+- 发布成功后，自动写入发布日志到 Google Sheets。
+
+步骤 5：WordPress 同步（可选）
+- 若该内容需要同步到 WP，n8n 调用 WP REST API 创建/更新文章。
+- 同步成功后回填 WP 链接到日志。
+
+十四-4、GitHub Actions（可复制模板）
+文件路径：.github/workflows/deploy.yml
+
+说明：
+- 如你当前站点是纯静态 HTML，可直接把仓库文件部署到 Hostinger 目录。
+- 下方给出 SFTP 方式示例（新手最稳）。
+
+```yaml
+name: Deploy HIS Site
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload via SFTP
+        uses: Dylan700/sftp-upload-action@latest
+        with:
+          server: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USER }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: 22
+          uploads: |
+            ./ => /home/${{ secrets.HOSTINGER_USER }}/public_html/
+```
+
+注意：
+- 上面密钥必须放在 GitHub Secrets，不能写在 txt 手册或聊天记录。
+- 若你改用 SSH Key，请把 password 改为 privateKey 配置方案。
+
+十四-5、n8n 工作流（小白版）
+工作流 A：内容采集与清洗
+- Trigger：Google Forms（或 Webhook）
+- 节点 1：字段校验（标题长度、描述长度、图片 URL）
+- 节点 2：格式化（按页面模板拼接 HTML/JSON）
+- 节点 3：写入待审核表（Google Sheets）
+
+工作流 B：审核后发布
+- Trigger：审核状态=Approved
+- 节点 1：GitHub（Create Branch）
+- 节点 2：GitHub（Create/Update File）
+- 节点 3：GitHub（Create Pull Request）
+- 节点 4：通知负责人“请合并 PR”
+
+工作流 C：发布后同步 WordPress
+- Trigger：GitHub Action 成功（Webhook）
+- 节点 1：HTTP Request（POST /wp-json/wp/v2/posts）
+- 节点 2：更新发布日志（Google Sheets）
+- 节点 3：发送成功通知
+
+十四-6、WordPress REST API 请求模板
+创建文章接口：
+- POST https://<your-domain>/wp-json/wp/v2/posts
+
+Headers：
+- Authorization: Basic <base64(username:application_password)>
+- Content-Type: application/json
+
+Body 示例：
+```json
+{
+  "title": "HIS 项目更新：Smart Cabinet 新案例",
+  "status": "publish",
+  "content": "<p>这里是正文 HTML</p>",
+  "categories": [12],
+  "tags": [34, 56]
+}
+```
+
+十四-7、Google Forms 字段模板（可直接照建）
+- request_id（自动生成）
+- submitter_name（提交人）
+- page_type（company-profile / project / product-workstation / product-smart-cabinet / product-agv）
+- title
+- summary
+- bullet_1
+- bullet_2
+- bullet_3
+- image_url_1
+- image_url_2（可选）
+- target_publish_date
+- urgent_flag（yes/no）
+
+十四-8、发布验收清单（自动化版）
+- 页面可打开且无 404
+- 图片加载成功且比例正常
+- 外链可点击（WhatsApp / YouTube / Project）
+- 手机端首屏无错位
+- Google Sheets 有本次日志记录
+- 若启用 WP：文章已成功发布且链接可访问
+
+十四-9、异常 10 秒修复表（自动化版）
+1) GitHub Action 失败
+- 快查：Secrets 是否缺失、权限是否过期
+- 快修：重新保存 Secrets -> Re-run jobs
+
+2) Hostinger 未更新
+- 快查：部署路径是否正确、SFTP 账号权限
+- 快修：改正确目录到 public_html，重新触发部署
+
+3) n8n 工作流未触发
+- 快查：Webhook URL 是否变更、工作流是否启用
+- 快修：复制新 Webhook，重新绑定触发源
+
+4) WordPress 401/403
+- 快查：应用密码、账号权限（作者/编辑）
+- 快修：重建 Application Password，确认用户角色
+
+5) 图片显示失败
+- 快查：URL 是否可公开访问、文件名是否含特殊字符
+- 快修：改为英文文件名并重新上传
+
+十四-10、安全与留痕规则（必须执行）
+- 禁止在任何文档明文记录密码、Token、API Key。
+- 凭据只记录“存放位置/负责人/最后校验时间”。
+- 每次发布必须有日志：谁提交、何时发布、发布了什么、结果如何。
+
+十四-11、建议目录与文档回填
+- 台账文件：docs/mcp/registry.md（记录服务与凭据位置，不写明文）
+- 健康记录：docs/mcp/<server>/health.md（每次检查结果）
+- 角色任务卡：tasks/mcp/<role>-<server>-install.md（小白执行卡）
+
+十四-12、最简执行口令（给操作同事）
+- 平时只做 3 件事：填表单 -> 审核通过 -> 看发布日志。
+- 出故障先看“十四-9 异常表”，仍失败再升级给维护者。
