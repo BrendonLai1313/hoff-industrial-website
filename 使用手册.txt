@@ -498,3 +498,89 @@ Body 示例：
 十四-12、最简执行口令（给操作同事）
 - 平时只做 3 件事：填表单 -> 审核通过 -> 看发布日志。
 - 出故障先看“十四-9 异常表”，仍失败再升级给维护者。
+
+
+============================================================
+十五、VPS 线上部署实录与避坑指南（2026-08-02 更新）
+============================================================
+
+十五-1、当前部署架构（必须理解）
+- 域名：hoff-industrial.com / www.hoff-industrial.com
+- VPS IP：72.60.208.120
+- GitHub 仓库：https://github.com/BrendonLai1313/hoff-industrial-website
+- 网站源码在 VPS 上的路径：/var/www/hoff-industrial.com
+- 网站通过 Docker 容器运行：
+  容器名：his-site
+  镜像：nginx:alpine
+  挂载：/var/www/hoff-industrial.com -> /usr/share/nginx/html
+  网络：n8n_default
+- 80/443 端口由 Traefik 容器（n8n-traefik-1）统一管理
+- 证书：Let's Encrypt，自动续期，certresolver=mytlschallenge
+
+十五-2、标准更新流程（每次改页面就这样做）
+
+在 Trae 中改好页面 -> 告诉 Trae 帮你推 GitHub：
+  命令：git add <文件名> ; git commit -m "描述改动" ; git push origin main
+
+然后 SSH 到 VPS：
+  ssh root@72.60.208.120
+  cd /var/www/hoff-industrial.com && git pull origin main
+
+完成。不需要重启任何容器，文件挂载会自动生效。
+
+十五-3、本次踩过的坑（2026-08-02）
+
+坑 1：Trae 终端无法直接 cd 进中文路径
+- 表现：cd 命令报"路径不存在"，实际上路径是对的
+- 根因：PowerShell 终端对中文路径字符处理有问题
+- 解决：用 Set-Location -LiteralPath 代替 cd，或者让 Trae 用 trae-sandbox 执行
+
+坑 2：Trae 直接 SSH 到 VPS 需要交互输入密码
+- 表现：ssh 命令卡在 password 提示，无法自动完成
+- 当前方案：Trae 负责推 GitHub，用户自己 SSH 到 VPS 执行 git pull
+- 未来可选方案：配置 SSH Key 免密登录
+
+坑 3：不要混淆部署平台
+- 项目里出现的 .vercel/ 和 vercel.json 是系统自动生成的
+- 本站点实际部署在 Hostinger VPS，不使用 Vercel/Supabase
+- 不要被自动检测到的其他平台配置误导
+
+坑 4：首次 git pull 可能显示 "Already up to date"
+- 原因：本地 HEAD 没先 fetch，直接 pull 看不到远端更新
+- 解决：改用 git pull origin main（明确指定远端和分支）
+
+十五-4、Apps Script 后端注意事项
+
+- 前端页面：compliance-check.html
+- 后端脚本位置：Google Apps Script 在线编辑器
+  （不在 GitHub 仓库里，需单独登录 script.google.com 管理）
+- 当前有效的 Web App URL（2026-08-02）：
+  https://script.google.com/macros/s/AKfycbx0jeq8VzsyuwH7zwb4cVor13RvhqYCKDCtpACvk6rcMekC3nmfTIeq3wJlmCu5MoDn/exec
+- 如果 Apps Script 重新部署后 URL 变了：
+  1. 更新 compliance-check.html 中第 540 行的 APPS_SCRIPT_URL
+  2. 推 GitHub
+  3. VPS git pull
+
+十五-5、GitHub 仓库关键信息
+
+- 仓库名：hoff-industrial-website
+- 拥有者：BrendonLai1313
+- 可见性：Public
+- 分支：main
+- 本地项目路径：
+  C:\Users\ThinkPad\我的雲端硬碟 (lammabrendon@gmail.com)\10_Projects\PRJ_HIS_网站商城优化\PRJ_HIS_hoff-industrial.com_网站项目_[进行中]
+- .git 目录存在，remote origin 已正确配置
+
+十五-6、Docker 容器检查命令（VPS 上执行）
+
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" | grep -E 'his-site|n8n-traefik'
+docker logs n8n-traefik-1 --tail 100
+docker inspect his-site --format '{{json .Config.Labels}}'
+curl -k -I --resolve hoff-industrial.com:443:127.0.0.1 https://hoff-industrial.com/
+
+十五-7、严禁事项
+
+- 禁止在 VPS 上启动系统级 nginx 服务（80/443 已被 Traefik 占用）
+- 禁止删除或重启 n8n-traefik-1 容器（会影响 n8n 服务）
+- 禁止修改 his-site 容器的网络配置（必须保持 n8n_default）
+- 禁止在文档中明文记录密码或 token
