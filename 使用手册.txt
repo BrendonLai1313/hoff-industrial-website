@@ -554,8 +554,8 @@ Body 示例：
 - 前端页面：compliance-check.html
 - 后端脚本位置：Google Apps Script 在线编辑器
   （不在 GitHub 仓库里，需单独登录 script.google.com 管理）
-- 当前有效的 Web App URL（2026-08-02）：
-  https://script.google.com/macros/s/AKfycbx0jeq8VzsyuwH7zwb4cVor13RvhqYCKDCtpACvk6rcMekC3nmfTIeq3wJlmCu5MoDn/exec
+- 当前有效的 Web App URL（V8，2026-08-02 更新）：
+  https://script.google.com/macros/s/AKfycbzFnZlN-0czvqCEIQZLbe8_67Nt6gFUVC8X7P_k-kTodm3PT18dau9GQsGdTGvYCz6XHg/exec
 - 如果 Apps Script 重新部署后 URL 变了：
   1. 更新 compliance-check.html 中第 540 行的 APPS_SCRIPT_URL
   2. 推 GitHub
