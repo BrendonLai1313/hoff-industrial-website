@@ -24,18 +24,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 48px;
-            padding: 32px 0;
+            gap: 32px;
+            padding: 28px 0 8px;
             flex-wrap: wrap;
         }
+        .partner-logo-box {
+            width: 190px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.7);
+        }
         .partner-logos img {
-            height: 45px;
+            max-height: 40px;
             width: auto;
-            opacity: 0.7;
-            transition: opacity 0.2s ease;
+            opacity: 1;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.2s ease;
         }
         .partner-logos img:hover {
-            opacity: 1;
+            transform: scale(1.04);
         }
     </style>
 </head>
@@ -121,10 +133,10 @@
                 <div class="rounded-2xl border border-gray-100 bg-slate-50 px-6 py-8 text-center">
                     <p class="text-base sm:text-lg font-medium text-industrial-900">Powered by technology trusted by global manufacturing giants: Toyota, Foxconn, Volkswagen, and CATL.</p>
                     <div class="partner-logos">
-                        <img src="AGV_Logos/Processed/toyota_logo.png" alt="Toyota" />
-                        <img src="AGV_Logos/Processed/foxconn_logo.png" alt="Foxconn" />
-                        <img src="AGV_Logos/Processed/volkswagen_logo.png" alt="Volkswagen" />
-                        <img src="AGV_Logos/Processed/catl_logo.png" alt="CATL" />
+                        <div class="partner-logo-box"><img src="AGV_Logos/Processed/toyota_logo.png" alt="Toyota" /></div>
+                        <div class="partner-logo-box"><img src="AGV_Logos/Processed/foxconn_logo.png" alt="Foxconn" /></div>
+                        <div class="partner-logo-box"><img src="AGV_Logos/Processed/volkswagen_logo.png" alt="Volkswagen" /></div>
+                        <div class="partner-logo-box"><img src="AGV_Logos/Processed/catl_logo.png" alt="CATL" /></div>
                     </div>
                 </div>
             </div>
